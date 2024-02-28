@@ -16,7 +16,7 @@ enum MsgType {
   MSG_TYPE_CUSTOM = 8;
 }
 
-enum _IFACE_TYPE {
+enum IfaceType {
   IFACE_TYPE_UNKNOWN = 0;
   IFACE_TYPE_CIOT = 1;
   IFACE_TYPE_STORAGE = 2;
