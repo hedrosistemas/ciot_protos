@@ -48,9 +48,9 @@ message MsgError {
 }
 
 message MsgData {
-  ciot.BleScnData bleScn = 11;
-  MsgError error = 19;
-  bytes payload = 20;
+  ciot.BleScnData bleScn = 1;
+  MsgError error = 2;
+  bytes payload = 3;
 }
 
 message MsgHeader {
