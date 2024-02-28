@@ -36,7 +36,7 @@ message BleScnReq {
 }
 
 message BleScnData {
-    optional BleScnCfg config = 1;
-    optional BleScnStatus status = 2;
-    optional BleScnReq request = 3;
+    BleScnCfg config = 1;
+    BleScnStatus status = 2;
+    BleScnReq request = 3;
 }
