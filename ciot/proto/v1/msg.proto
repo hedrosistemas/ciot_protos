@@ -1,0 +1,102 @@
+syntax = "proto3";
+
+package Ciot;
+
+import "ciot/proto/v1/ble_scn.proto";
+import "ciot/proto/v1/ble.proto";
+import "ciot/proto/v1/ciot.proto";
+import "ciot/proto/v1/http_client.proto";
+import "ciot/proto/v1/http_server.proto";
+import "ciot/proto/v1/mqtt_client.proto";
+import "ciot/proto/v1/ntp.proto";
+import "ciot/proto/v1/ota.proto";
+import "ciot/proto/v1/storage.proto";
+import "ciot/proto/v1/sys.proto";
+import "ciot/proto/v1/tcp.proto";
+import "ciot/proto/v1/uart.proto";
+import "ciot/proto/v1/usb.proto";
+import "ciot/proto/v1/wifi.proto";
+
+// Enum representing different types of messages.
+enum MsgType {
+  MSG_TYPE_UNKNOWN = 0;        // Unknown message type.
+  MSG_TYPE_START = 1;          // Start message.
+  MSG_TYPE_STOP = 2;           // Stop message.
+  MSG_TYPE_GET_CONFIG = 3;     // Get configuration message.
+  MSG_TYPE_GET_STATUS = 4;     // Get status message.
+  MSG_TYPE_REQUEST = 5;        // Request message.
+  MSG_TYPE_ERROR = 6;          // Error message.
+  MSG_TYPE_EVENT = 7;          // Event message.
+}
+
+// Enum representing different interface types.
+enum InterfaceType {
+  IFACE_TYPE_UNKNOWN = 0;       // Unknown interface type.
+  IFACE_TYPE_CIOT = 1;          // CIOT interface type.
+  IFACE_TYPE_STORAGE = 2;       // Storage interface type.
+  IFACE_TYPE_SYSTEM = 3;        // System interface type.
+  IFACE_TYPE_UART = 4;          // UART interface type.
+  IFACE_TYPE_USB = 5;           // USB interface type.
+  IFACE_TYPE_TCP = 6;           // TCP interface type.
+  IFACE_TYPE_ETH = 7;           // Ethernet interface type.
+  IFACE_TYPE_WIFI = 8;          // WiFi interface type.
+  IFACE_TYPE_BLE = 9;           // BLE interface type.
+  IFACE_TYPE_BLE_SCN = 10;      // BLE SCN interface type.
+  IFACE_TYPE_GPIO = 11;         // GPIO interface type.
+  IFACE_TYPE_NTP = 127;         // NTP interface type.
+  IFACE_TYPE_OTA = 128;         // OTA interface type.
+  IFACE_TYPE_DFU = 129;         // DFU interface type.
+  IFACE_TYPE_HTTP_CLIENT = 130; // HTTP Client interface type.
+  IFACE_TYPE_HTTP_SERVER = 131; // HTTP Server interface type.
+  IFACE_TYPE_MQTT = 132;        // MQTT interface type.
+  IFACE_TYPE_CUSTOM = 133;          // Custom interface type.
+  IFACE_TYPE_BRIDGE = 134;      // Bridge interface type.
+}
+
+// Message representing information about an interface.
+message InterfaceInfo {
+  uint32 id = 1;     // Interface ID.
+  InterfaceType type = 2; // Interface type.
+}
+
+// Message representing error details for a message.
+message MsgError {
+  MsgType msg_type = 1; // Type of the message.
+  uint32 code = 2;     // Error code.
+}
+
+// Message representing data for a message.
+message MsgData {
+  Ciot.CiotData ciot = 1;              // CIOT data.
+  Ciot.StorageData storage = 2;        // Storage data.
+  Ciot.SysData sys = 3;                // System data.
+  Ciot.UartData uart = 4;              // UART data.
+  Ciot.UsbData usb = 5;                // USB data.
+  Ciot.TcpData tcp = 6;                // TCP data.
+  Ciot.TcpData eth = 7;                // Ethernet data.
+  Ciot.WifiData wifi = 8;              // WiFi data.
+  Ciot.BleData ble = 9;                // BLE data.
+  Ciot.BleScnData ble_scn = 10;         // BLE SCN data.
+  Ciot.NtpData ntp = 11;               // NTP data.
+  Ciot.OtaData ota = 12;               // OTA data.
+  Ciot.HttpServerData http_server = 13; // HTTP Server data.
+  Ciot.HttpClientData http_client = 14; // HTTP Client data.
+  Ciot.MqttClientData mqtt_client = 15; // MQTT Client data.
+  MsgError error = 17;                 // Error data.
+  bytes payload = 18;                  // Payload data.
+}
+
+// Message representing the header of a message.
+message MsgHeader {
+  uint32 id = 1;           // Message ID.
+  MsgType type = 2;        // Message type.
+  InterfaceInfo iface = 3; // Interface information.
+}
+
+// Represents an CioT message
+message Msg {
+  uint32 id = 1;           // Message ID.
+  MsgType type = 2;        // Message type.
+  InterfaceInfo iface = 3; // Interface information.
+  MsgData data = 4;        // Message data.
+}
