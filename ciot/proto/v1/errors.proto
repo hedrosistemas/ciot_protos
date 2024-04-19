@@ -28,5 +28,8 @@ enum CiotErr {
   CIOT_ERR_INVALID_ARG = 21;        // Invalid argument detected
   CIOT_ERR_NO_MEMORY = 22;          // Insuficient memory
   CIOT_ERR_TIMEOUT = 23;            // Timeout
+  CIOT_ERR_MONGOOSE = 24;           // Error on mongoose framwork
+  CIOT_ERR_IMPOSSIBLE_OP = 25;      // Requested operation is impossible
+  CIOT_ERR_CHECKSUM = 26;           // Checksum verification failed
   CIOT_FAIL = -1;                   // Operation failed
 }
