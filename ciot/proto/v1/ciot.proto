@@ -28,7 +28,7 @@ message CiotCfg {}
 
 // Message representing CIOT information.
 message CiotInfo {
-  CiotSerializationType serialization = 1; // Serialization type used.
+  bytes version = 1;  // CIOT library version
 }
 
 // Message representing CIOT status.
