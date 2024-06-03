@@ -9,6 +9,7 @@ gen:
 	protoc --$(L)_out=$(O) ciot/proto/v1/msg.proto
 	protoc --$(L)_out=$(O) ciot/proto/v1/ntp.proto
 	protoc --$(L)_out=$(O) ciot/proto/v1/ota.proto
+	protoc --$(L)_out=$(O) ciot/proto/v1/dfu.proto
 	protoc --$(L)_out=$(O) ciot/proto/v1/storage.proto
 	protoc --$(L)_out=$(O) ciot/proto/v1/sys.proto
 	protoc --$(L)_out=$(O) ciot/proto/v1/tcp.proto
