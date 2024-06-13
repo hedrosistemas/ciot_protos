@@ -27,18 +27,14 @@ message HttpServerStatus {
   int32 error = 2;           // Error code, if any.
 }
 
-// Message representing data for an HTTP server request.
-message HttpServerReqData {}
-
 // Message representing an HTTP server request.
 message HttpServerReq {
   HttpServerReqType type = 1; // Type of the HTTP server request.
-  HttpServerReqData data = 2; // Data associated with the request.
 }
 
 // Message representing HTTP server data.
 message HttpServerData {
-  HttpServerCfg config = 1;    // Configuration for the HTTP server.
-  HttpServerStatus status = 2; // Status of the HTTP server.
-  HttpServerReq request = 3;   // HTTP server request data.
+  HttpServerCfg config = 1;           // Configuration for the HTTP server.
+  HttpServerStatus status = 2;        // Status of the HTTP server.
+  HttpServerReq request = 3;          // HTTP server request data.
 }

@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package Ciot;
+
+// Possible ble scanner states
+enum BleAdvState {
+  // Idle state
+  BLE_ADV_STATE_IDLE = 0;
+}
+
+// Ble scanner request types
+enum BleAdvReqType {
+  // Unknown request type
+  BLE_ADV_REQ_TYPE_UNKOWN = 0;
+}
+
+// Ble scanner configuration
+message BleAdvCfg {
+
+}
+
+// Ble scanner status
+message BleAdvStatus {
+  // Current state
+  BleAdvState state = 1;
+  // Current error code
+  int32 err_code = 2;
+}
+
+// Ble scanner request
+message BleAdvReq {
+  // Request type
+  BleAdvReqType type = 1;
+}
+
+// Ble scanner data
+message BleAdvData {
+  // Configuration
+  BleAdvCfg config = 1;
+  // Status
+  BleAdvStatus status = 2;
+  // Request
+  BleAdvReq request = 3;
+}

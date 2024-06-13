@@ -4,30 +4,9 @@ package Ciot;
 
 // Enum representing different types of system requests.
 enum SysReqType {
-  SYS_REQ_TYPE_UNKOWN = 0;  // Unknown system request type.
-  SYS_REQ_TYPE_RESTART = 1; // System restart request.
-}
-
-// Enum representing hardware features of the system.
-enum SysHwFeatures {
-  SYS_FEATURE_STORAGE = 0;  // Storage feature.
-  SYS_FEATURE_SYSTEM = 1;   // System feature.
-  SYS_FEATURE_UART = 2;     // UART feature.
-  SYS_FEATURE_USB = 3;      // USB feature.
-  SYS_FEATURE_ETHERNET = 4; // Ethernet feature.
-  SYS_FEATURE_WIFI = 5;     // WiFi feature.
-  SYS_FEATURE_BLE_SCN = 6;  // Bluetooth Low Energy (BLE) Scanner feature.
-}
-
-// Enum representing software features of the system.
-enum SysSwFeatures {
-  SYS_FEATURE_NTP = 0;           // NTP feature.
-  SYS_FEATURE_OTA = 1;           // OTA (Over-the-Air update) feature.
-  SYS_FEATURE_HTTP_CLIENT = 2;   // HTTP client feature.
-  SYS_FEATURE_HTTP_SERVER = 3;   // HTTP server feature.
-  SYS_FEATURE_MQTT_CLIENT = 4;   // MQTT client feature.
-  SYS_FEATURE_TIMER = 5;         // Timer feature.
-  SYS_FEATURE_SERIALIZATION = 6; // Serialization feature.
+  SYS_REQ_TYPE_UNKOWN = 0;   // Unknown system request type.
+  SYS_REQ_TYPE_RESTART = 1;  // System restart request.
+  SYS_REQ_TYPE_INIT_DFU = 2; // System init DFU bootloader
 }
 
 // Enum representing hardware version
@@ -45,10 +24,33 @@ enum SysHw {
 // Message representing configuration for the system.
 message SysCfg {}
 
+// Enum representing hardware features of the system.
+message SysHwFeatures {
+  bool storage = 1;  // Storage feature.
+  bool sys = 2;      // System feature.
+  bool uart = 3;     // UART feature.
+  bool usb = 4;      // USB feature.
+  bool ethernet = 5; // Ethernet feature.
+  bool wifi = 6;     // WiFi feature.
+  bool ble_scn = 7;  // Bluetooth Low Energy (BLE) Scanner feature.
+  bool gpio = 8;     // GPIO feature
+}
+
+// Enum representing software features of the system.
+message SysSwFeatures {
+  bool ntp = 1;           // NTP feature.
+  bool dfu = 2;           // DFU feature
+  bool ota = 3;           // OTA (Over-the-Air update) feature.
+  bool http_client = 4;   // HTTP client feature.
+  bool http_server = 5;   // HTTP server feature.
+  bool mqtt_client = 6;   // MQTT client feature.
+  bool timer = 7;         // Timer feature.
+}
+
 // Message representing system features.
 message SysFeatures {
-  uint32 hw = 1; // Hardware features bitmask.
-  uint32 sw = 2; // Software features bitmask.
+  SysHwFeatures hw = 1; // Hardware features bitmask.
+  SysSwFeatures sw = 2; // Software features bitmask.
 }
 
 // Message representing system information.
@@ -65,7 +67,6 @@ message SysStatus {
   uint32 reset_count = 2;  // Number of resets.
   uint32 free_memory = 3;  // Amount of free memory.
   uint32 lifetime = 4;     // Lifetime of the system.
-  SysInfo info = 5;        // System information.
 }
 
 // Message representing a system request.
@@ -78,4 +79,5 @@ message SysData {
   SysCfg config = 1;    // Configuration for the system.
   SysStatus status = 2; // Status of the system.
   SysReq request = 3;   // System request data.
+  SysInfo info = 4;     // System info.
 }

@@ -42,6 +42,14 @@ message BleScnAdvInfo {
   int32 rssi = 2;
 }
 
+// Ble scanner advertisement
+message BleScnAdv {
+  // Advertisement information
+  BleScnAdvInfo info = 1;
+  // Advertisement data
+  bytes adv = 2;
+}
+
 // Ble scanner status
 message BleScnStatus {
   // Current state

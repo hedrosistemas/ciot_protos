@@ -53,4 +53,5 @@ message BleData {
   BleCfg config = 1;
   BleStatus status = 2;
   BleReq request = 3;
+  BleInfo info = 4;
 }

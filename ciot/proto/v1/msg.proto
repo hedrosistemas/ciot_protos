@@ -2,11 +2,13 @@ syntax = "proto3";
 
 package Ciot;
 
+import "ciot/proto/v1/ble_adv.proto";
 import "ciot/proto/v1/ble_scn.proto";
 import "ciot/proto/v1/ble.proto";
 import "ciot/proto/v1/ciot.proto";
 import "ciot/proto/v1/http_client.proto";
 import "ciot/proto/v1/http_server.proto";
+import "ciot/proto/v1/model.proto";
 import "ciot/proto/v1/mqtt_client.proto";
 import "ciot/proto/v1/ntp.proto";
 import "ciot/proto/v1/ota.proto";
@@ -20,22 +22,23 @@ import "ciot/proto/v1/wifi.proto";
 
 // Enum representing different types of messages.
 enum MsgType {
-  MSG_TYPE_UNKNOWN = 0;    // Unknown message type.
-  MSG_TYPE_START = 1;      // Start message.
-  MSG_TYPE_STOP = 2;       // Stop message.
-  MSG_TYPE_GET_CONFIG = 3; // Get configuration message.
-  MSG_TYPE_GET_STATUS = 4; // Get status message.
-  MSG_TYPE_REQUEST = 5;    // Request message.
-  MSG_TYPE_ERROR = 6;      // Error message.
-  MSG_TYPE_EVENT = 7;      // Event message.
+  MSG_TYPE_UNKNOWN = 0; // Unknown message type.
+  MSG_TYPE_START = 1;   // Start message.
+  MSG_TYPE_STOP = 2;    // Stop message.
+  MSG_TYPE_CONFIG = 3;  // configuration message.
+  MSG_TYPE_INFO = 4;    // information message.
+  MSG_TYPE_STATUS = 5;  // status message.
+  MSG_TYPE_REQUEST = 6; // Request message.
+  MSG_TYPE_ERROR = 7;   // Error message.
+  MSG_TYPE_EVENT = 8;   // Event message.
 }
 
 // Enum representing different interface types.
-enum InterfaceType {
+enum IfaceType {
   IFACE_TYPE_UNKNOWN = 0;       // Unknown interface type.
   IFACE_TYPE_CIOT = 1;          // CIOT interface type.
   IFACE_TYPE_STORAGE = 2;       // Storage interface type.
-  IFACE_TYPE_SYSTEM = 3;        // System interface type.
+  IFACE_TYPE_SYS = 3;           // System interface type.
   IFACE_TYPE_UART = 4;          // UART interface type.
   IFACE_TYPE_USB = 5;           // USB interface type.
   IFACE_TYPE_TCP = 6;           // TCP interface type.
@@ -43,7 +46,8 @@ enum InterfaceType {
   IFACE_TYPE_WIFI = 8;          // WiFi interface type.
   IFACE_TYPE_BLE = 9;           // BLE interface type.
   IFACE_TYPE_BLE_SCN = 10;      // BLE SCN interface type.
-  IFACE_TYPE_GPIO = 11;         // GPIO interface type.
+  IFACE_TYPE_BLE_ADV = 11;      // BLE ADV interface type.
+  IFACE_TYPE_GPIO = 12;         // GPIO interface type.
   IFACE_TYPE_NTP = 127;         // NTP interface type.
   IFACE_TYPE_OTA = 128;         // OTA interface type.
   IFACE_TYPE_DFU = 129;         // DFU interface type.
@@ -55,15 +59,16 @@ enum InterfaceType {
 }
 
 // Message representing information about an interface.
-message InterfaceInfo {
-  uint32 id = 1;          // Interface ID.
-  InterfaceType type = 2; // Interface type.
+message IfaceInfo {
+  uint32 id = 1;      // Interface ID.
+  IfaceType type = 2; // Interface type.
 }
 
 // Message representing error details for a message.
 message MsgError {
-  MsgType msg_type = 1; // Type of the message.
-  uint32 code = 2;      // Error code.
+  MsgHeader msg = 1;   // Type of the message.
+  IfaceInfo iface = 2; // Interface information.
+  uint32 code = 3;     // Error code.
 }
 
 // Message representing data for a message.
@@ -78,27 +83,29 @@ message MsgData {
   Ciot.WifiData wifi = 8;               // WiFi data.
   Ciot.BleData ble = 9;                 // BLE data.
   Ciot.BleScnData ble_scn = 10;         // BLE SCN data.
-  Ciot.NtpData ntp = 11;                // NTP data.
-  Ciot.OtaData ota = 12;                // OTA data.
-  Ciot.DfuData dfu = 13;                // DFU data.
-  Ciot.HttpServerData http_server = 14; // HTTP Server data.
-  Ciot.HttpClientData http_client = 15; // HTTP Client data.
-  Ciot.MqttClientData mqtt_client = 16; // MQTT Client data.
-  MsgError error = 17;                  // Error data.
-  bytes payload = 18;                   // Payload data.
+  Ciot.BleAdvData ble_adv = 11;         // BLE ADV data.
+  Ciot.NtpData ntp = 12;                // NTP data.
+  Ciot.OtaData ota = 13;                // OTA data.
+  Ciot.DfuData dfu = 14;                // DFU data.
+  Ciot.HttpServerData http_server = 15; // HTTP Server data.
+  Ciot.HttpClientData http_client = 16; // HTTP Client data.
+  Ciot.MqttClientData mqtt_client = 17; // MQTT Client data.
+  MsgError error = 18;                  // Error data.
+  bytes raw = 19;                       // Payload data.
+  Ciot.ModelData model = 20;            // Model data.
 }
 
 // Message representing the header of a message.
 message MsgHeader {
-  uint32 id = 1;           // Message ID.
-  MsgType type = 2;        // Message type.
-  InterfaceInfo iface = 3; // Interface information.
+  uint32 id = 1;       // Message ID.
+  MsgType type = 2;    // Message type.
+  IfaceInfo iface = 3; // Interface information.
 }
 
 // Represents an CioT message
 message Msg {
-  uint32 id = 1;           // Message ID.
-  MsgType type = 2;        // Message type.
-  InterfaceInfo iface = 3; // Interface information.
-  MsgData data = 4;        // Message data.
+  uint32 id = 1;       // Message ID.
+  MsgType type = 2;    // Message type.
+  IfaceInfo iface = 3; // Interface information.
+  MsgData data = 4;    // Message data.
 }
