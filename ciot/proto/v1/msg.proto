@@ -6,13 +6,15 @@ import "ciot/proto/v1/ble_adv.proto";
 import "ciot/proto/v1/ble_scn.proto";
 import "ciot/proto/v1/ble.proto";
 import "ciot/proto/v1/ciot.proto";
+import "ciot/proto/v1/dfu.proto";
+import "ciot/proto/v1/errors.proto";
 import "ciot/proto/v1/http_client.proto";
 import "ciot/proto/v1/http_server.proto";
+import "ciot/proto/v1/logger.proto";
 import "ciot/proto/v1/model.proto";
 import "ciot/proto/v1/mqtt_client.proto";
 import "ciot/proto/v1/ntp.proto";
 import "ciot/proto/v1/ota.proto";
-import "ciot/proto/v1/dfu.proto";
 import "ciot/proto/v1/storage.proto";
 import "ciot/proto/v1/sys.proto";
 import "ciot/proto/v1/tcp.proto";
@@ -31,6 +33,8 @@ enum MsgType {
   MSG_TYPE_REQUEST = 6; // Request message.
   MSG_TYPE_ERROR = 7;   // Error message.
   MSG_TYPE_EVENT = 8;   // Event message.
+  MSG_TYPE_CUSTOM = 9;  // Custom message.
+  MSG_TYPE_LOG = 10;    // Log message.
 }
 
 // Enum representing different interface types.
@@ -54,8 +58,8 @@ enum IfaceType {
   IFACE_TYPE_HTTP_CLIENT = 130; // HTTP Client interface type.
   IFACE_TYPE_HTTP_SERVER = 131; // HTTP Server interface type.
   IFACE_TYPE_MQTT = 132;        // MQTT interface type.
-  IFACE_TYPE_CUSTOM = 133;      // Custom interface type.
-  IFACE_TYPE_BRIDGE = 134;      // Bridge interface type.
+  IFACE_TYPE_BRIDGE = 253;      // Bridge interface type.
+  IFACE_TYPE_CUSTOM = 254;      // Custom interface type.
 }
 
 // Message representing information about an interface.
@@ -68,7 +72,7 @@ message IfaceInfo {
 message MsgError {
   MsgHeader msg = 1;   // Type of the message.
   IfaceInfo iface = 2; // Interface information.
-  uint32 code = 3;     // Error code.
+  CiotErr code = 3; // Error code.
 }
 
 // Message representing data for a message.
@@ -93,6 +97,7 @@ message MsgData {
   MsgError error = 18;                  // Error data.
   bytes raw = 19;                       // Payload data.
   Ciot.ModelData model = 20;            // Model data.
+  Ciot.Log log = 21;                    // Log data.
 }
 
 // Message representing the header of a message.

@@ -46,8 +46,8 @@ message BleScnAdvInfo {
 message BleScnAdv {
   // Advertisement information
   BleScnAdvInfo info = 1;
-  // Advertisement data
-  bytes adv = 2;
+  // Advertisement payload
+  bytes payload = 2;
 }
 
 // Ble scanner status
@@ -58,6 +58,10 @@ message BleScnStatus {
   BleScnAdvInfo adv_info = 2;
   // Current error code
   int32 err_code = 3;
+  // Current fifo lenght
+  int32 fifo_len = 4;
+  // Fifo maximum size
+  int32 fifo_max = 5;
 }
 
 // Ble scanner request

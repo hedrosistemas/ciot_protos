@@ -21,6 +21,7 @@ enum OtaState {
 // Enum representing different types of OTA requests.
 enum OtaReqType {
   OTA_REQ_TYPE_UNKOWN = 0;             // Unknown OTA request type.
+  OTA_REQ_TYPE_ROLLBACK = 1;           // Rollback
 }
 
 // Message representing configuration for the OTA process.

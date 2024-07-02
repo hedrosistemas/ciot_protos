@@ -4,11 +4,12 @@ package Ciot;
 
 // Enum representing the state of the TCP module.
 enum TcpState {
-  TCP_STATE_STARTED = 0;    // TCP module is started.
-  TCP_STATE_STOPPED = 1;    // TCP module is stopped.
-  TCP_STATE_CONNECTING = 2; // TCP module is connecting.
-  TCP_STATE_CONNECTED = 3;  // TCP module is connected.
-  TCP_STATE_ERROR = -1;     // TCP module encountered an error.
+  TCP_STATE_STARTED = 0;      // TCP module is started.
+  TCP_STATE_STOPPED = 1;      // TCP module is stopped.
+  TCP_STATE_DISCONNECTED = 2; // TCP module is disconnected.
+  TCP_STATE_CONNECTING = 3;   // TCP module is connecting.
+  TCP_STATE_CONNECTED = 4;    // TCP module is connected.
+  TCP_STATE_ERROR = -1;       // TCP module encountered an error.
 }
 
 // Enum representing the state of the TCP DHCP (Dynamic Host Configuration
@@ -20,7 +21,7 @@ enum TcpDhcpState {
 }
 
 // Enum representing different TCP DHCP configurations.
-enum CiotTcpDhcpCfg {
+enum TcpDhcpCfg {
   TCP_DHCP_CFG_NO_CHANGE = 0; // No change in DHCP configuration.
   TCP_DHCP_CFG_CLIENT = 1;    // Configure as DHCP client.
   TCP_DHCP_CFG_SERVER = 2;    // Configure as DHCP server.
@@ -34,7 +35,7 @@ enum TcpReqType {
 
 // Message representing configuration for the TCP module.
 message TcpCfg {
-  CiotTcpDhcpCfg dhcp = 1; // DHCP configuration.
+  TcpDhcpCfg dhcp = 1; // DHCP configuration.
   bytes ip = 2;            // IP address.
   bytes gateway = 3;       // Gateway address.
   bytes mask = 4;          // Subnet mask.
@@ -56,9 +57,8 @@ message TcpInfo {
 // Message representing status for the TCP module.
 message TcpStatus {
   TcpState state = 1;     // State of the TCP module.
-  uint32 conn_count = 2;   // Connection count.
+  uint32 conn_count = 2;  // Connection count.
   TcpDhcpStatus dhcp = 3; // DHCP status.
-  TcpInfo info = 4;       // TCP information.
 }
 
 // Message representing a TCP request.
@@ -71,4 +71,5 @@ message TcpData {
   TcpCfg config = 1;    // Configuration for the TCP module.
   TcpStatus status = 2; // Status of the TCP module.
   TcpReq request = 3;   // TCP request data.
+  TcpInfo info = 4;     // TCP information.
 }

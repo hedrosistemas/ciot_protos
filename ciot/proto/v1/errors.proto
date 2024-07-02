@@ -29,5 +29,7 @@ enum CiotErr {
   IMPOSSIBLE_OP = 24;      // Requested operation is impossible
   CHECKSUM = 25;           // Checksum validation error
   PROTOCOL_VIOLATION = 26; // Protocol validation error
-  FAIL = -1;                   // Operation failed
+  DATA_LOSS = 27;          // Data loss
+  INVALID_HEADER = 28;     // Invalid message header
+  FAIL = -1;               // Operation failed
 }

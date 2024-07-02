@@ -13,10 +13,10 @@ enum CiotState {
 
 // Enum representing different types of CIOT requests.
 enum CiotReqType {
-  CIOT_REQ_TYPE_UNKOWN = 0;           // Unknown request type.
-  CIOT_REQ_TYPE_SAVE_IFACE_CFG = 1;   // Request to save interface configuration.
+  CIOT_REQ_TYPE_UNKOWN = 0;         // Unknown request type.
+  CIOT_REQ_TYPE_SAVE_IFACE_CFG = 1; // Request to save interface configuration.
   CIOT_REQ_TYPE_DELETE_IFACE_CFG = 2; // Request to delete interface configuration.
-  CIOT_REQ_TYPE_PROXY_MSG = 3;        // Request to proxy a message.
+  CIOT_REQ_TYPE_PROXY_MSG = 3; // Request to proxy a message.
 }
 
 // Enum representing different serialization types for CIOT.
@@ -35,7 +35,6 @@ message CiotInfo {
 // Message representing CIOT status.
 message CiotStatus {
   CiotState state = 1; // State of the CIOT device.
-  CiotInfo info = 3;   // Additional information about the CIOT device.
 }
 
 // Message representing data for a CIOT request.
@@ -55,4 +54,5 @@ message CiotData {
   CiotCfg config = 1;    // Configuration data.
   CiotStatus status = 2; // Status of the CIOT device.
   CiotReq request = 3;   // CIOT request data.
+  CiotInfo info = 4;     // Additional information about the CIOT device.
 }
