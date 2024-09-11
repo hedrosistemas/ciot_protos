@@ -31,5 +31,6 @@ enum CiotErr {
   PROTOCOL_VIOLATION = 26; // Protocol validation error
   DATA_LOSS = 27;          // Data loss
   INVALID_HEADER = 28;     // Invalid message header
-  FAIL = -1;               // Operation failed
+  DISABLED = 29;           // Feature disabled
+  FAIL = 30;               // Operation failed
 }

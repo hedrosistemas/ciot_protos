@@ -39,10 +39,11 @@ message WifiApInfo {
 
 // Message representing configuration for the Wi-Fi module.
 message WifiCfg {
-  string ssid = 1;     // SSID of the Wi-Fi network.
-  string password = 2; // Password for the Wi-Fi network.
-  WifiType type = 3;   // Type of Wi-Fi connection.
-  Ciot.TcpCfg tcp = 4; // TCP configuration for Wi-Fi communication.
+  bool enabled = 1;    // Power on wifi interface
+  string ssid = 2;     // SSID of the Wi-Fi network.
+  string password = 3; // Password for the Wi-Fi network.
+  WifiType type = 4;   // Type of Wi-Fi connection.
+  Ciot.TcpCfg tcp = 5; // TCP configuration for Wi-Fi communication.
 }
 
 // Message representing status for the Wi-Fi module.

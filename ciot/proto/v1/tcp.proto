@@ -4,8 +4,8 @@ package Ciot;
 
 // Enum representing the state of the TCP module.
 enum TcpState {
-  TCP_STATE_STARTED = 0;      // TCP module is started.
-  TCP_STATE_STOPPED = 1;      // TCP module is stopped.
+  TCP_STATE_STOPPED = 0;      // TCP module is stopped.
+  TCP_STATE_STARTED = 1;      // TCP module is started.
   TCP_STATE_DISCONNECTED = 2; // TCP module is disconnected.
   TCP_STATE_CONNECTING = 3;   // TCP module is connecting.
   TCP_STATE_CONNECTED = 4;    // TCP module is connected.

@@ -37,7 +37,7 @@ message OtaStatus {
   OtaState state = 1;                   // State of the OTA process.
   int32 error = 2;                      // Error code, if any.
   uint32 image_size = 3;                 // Size of the OTA image.
-  uint32 image_read = 4;                 // Size of the OTA image already read.
+  uint32 image_written = 4;                 // Size of the OTA image already read.
 }
 
 // Message representing data for an OTA request.
