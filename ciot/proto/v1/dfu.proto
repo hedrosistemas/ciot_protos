@@ -2,20 +2,27 @@ syntax = "proto3";
 
 package Ciot;
 
+import "ciot/proto/v1/errors.proto";
+
 // Possible dfu states
 enum DfuState {
   // Idle state
   DFU_STATE_IDLE = 0;
+  // Dfu Starting
+  DFU_STATE_STARTING = 1;
+  // Dfu Interrface started
+  DFU_STATE_STARTED = 2;
   // Dfu in progress
-  DFU_STATE_IN_PROGRESS = 1;
+  DFU_STATE_IN_PROGRESS = 3;
   // Dfu completed
-  DFU_STATE_COMPLETED = 2;
+  DFU_STATE_COMPLETED = 4;
+  // Dfu error
+  DFU_STATE_ERROR = -1;
 }
 
 // Dfu request types
 enum DfuReqType {
   DFU_REQ_TYPE_UNKOWN = 0;   // Unknown request type
-  DFU_REQ_SEND_FIRMWARE = 1; // Request to send firmware over dfu interface
 }
 
 // Dfu types
@@ -33,13 +40,13 @@ message DfuCfg { DfuType type = 1; }
 message DfuStatus {
   DfuState state = 1;       // Dfu current state
   int32 code = 2;           // Dfu response/status code
-  int32 error = 3;          // Dfu error code
+  CiotErr error = 3;        // Dfu error code
   uint32 image_size = 4;    // Dfu image size
   uint32 image_written = 5; // Dfu image written on client
 }
 
 // Dfu request
-message DfuRequest {
+message DfuReq {
     DfuReqType type = 1;    // Request type
 }
 
@@ -47,5 +54,5 @@ message DfuRequest {
 message DfuData {
     DfuCfg config = 1;          // Dfu configuration data
     DfuStatus status = 2;       // Dfu status data
-    DfuRequest request = 3;     // Dfu request data
+    DfuReq request = 3;     // Dfu request data
 }

@@ -4,23 +4,24 @@ package Ciot;
 
 // Enum representing the state of CIOT.
 enum CiotState {
-  CIOT_STATE_IDLE = 0;   // Device is in an idle state.
-  CIOT_STATE_BUSY = 1;   // Device is busy.
-  CIOT_STATE_ERROR = -1; // Device encountered an error.
+  CIOT_STATE_IDLE = 0;     // CIOT core is in an idle state.
+  CIOT_STATE_STARTING = 1; // CIOT core is starting.
+  CIOT_STATE_STARTED = 2;  // CIOT core is started.
+  CIOT_STATE_BUSY = 3;     // CIOT core is busy.
+  CIOT_STATE_ERROR = -1;   // CIOT core encountered an error.
 }
 
 // Enum representing different types of CIOT requests.
 enum CiotReqType {
-  CIOT_REQ_TYPE_UNKOWN = 0;           // Unknown request type.
-  CIOT_REQ_TYPE_SAVE_IFACE_CFG = 1;   // Request to save interface configuration.
+  CIOT_REQ_TYPE_UNKOWN = 0;         // Unknown request type.
+  CIOT_REQ_TYPE_SAVE_IFACE_CFG = 1; // Request to save interface configuration.
   CIOT_REQ_TYPE_DELETE_IFACE_CFG = 2; // Request to delete interface configuration.
-  CIOT_REQ_TYPE_PROXY_MSG = 3;        // Request to proxy a message.
+  CIOT_REQ_TYPE_PROXY_MSG = 3; // Request to proxy a message.
 }
 
 // Enum representing different serialization types for CIOT.
 enum CiotSerializationType {
-  CIOT_SERIALIZATION_NONE = 0;     // No serialization type specified.
-  CIOT_SERIALIZATION_PROTOBUF = 1; // Protocol Buffers serialization type.
+  CIOT_SERIALIZATION_PROTOBUF = 0; // Protocol Buffers serialization type.
 }
 
 // Message representing CIOT configuration.
@@ -28,19 +29,18 @@ message CiotCfg {}
 
 // Message representing CIOT information.
 message CiotInfo {
-  bytes version = 1;  // CIOT library version
+  bytes version = 1; // CIOT library version
 }
 
 // Message representing CIOT status.
 message CiotStatus {
   CiotState state = 1; // State of the CIOT device.
-  CiotInfo info = 3;   // Additional information about the CIOT device.
 }
 
 // Message representing data for a CIOT request.
 message CiotReqData {
   uint32 iface_id = 1; // Interface ID for the request.
-  bytes payload = 2;  // Payload data for the request.
+  bytes payload = 2;   // Payload data for the request.
 }
 
 // Message representing a CIOT request.
@@ -54,4 +54,5 @@ message CiotData {
   CiotCfg config = 1;    // Configuration data.
   CiotStatus status = 2; // Status of the CIOT device.
   CiotReq request = 3;   // CIOT request data.
+  CiotInfo info = 4;     // Additional information about the CIOT device.
 }

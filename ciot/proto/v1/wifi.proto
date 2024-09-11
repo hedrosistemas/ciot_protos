@@ -39,17 +39,22 @@ message WifiApInfo {
 
 // Message representing configuration for the Wi-Fi module.
 message WifiCfg {
-  string ssid = 1;     // SSID of the Wi-Fi network.
-  string password = 2; // Password for the Wi-Fi network.
-  WifiType type = 3;   // Type of Wi-Fi connection.
-  Ciot.TcpCfg tcp = 4; // TCP configuration for Wi-Fi communication.
+  bool enabled = 1;    // Power on wifi interface
+  string ssid = 2;     // SSID of the Wi-Fi network.
+  string password = 3; // Password for the Wi-Fi network.
+  WifiType type = 4;   // Type of Wi-Fi connection.
+  Ciot.TcpCfg tcp = 5; // TCP configuration for Wi-Fi communication.
 }
 
 // Message representing status for the Wi-Fi module.
 message WifiStatus {
   uint32 disconnect_reason = 1; // Reason for Wi-Fi disconnection.
-  WifiApInfo info = 2;         // Information about the connected access point.
-  Ciot.TcpStatus tcp = 3;      // Status of the TCP connection over Wi-Fi.
+  Ciot.TcpStatus tcp = 2;      // Status of the TCP connection over Wi-Fi.
+}
+
+message WifiInfo {
+  Ciot.TcpInfo tcp = 1;
+  WifiApInfo ap = 2;
 }
 
 // Message representing the result of Wi-Fi scanning.
@@ -69,4 +74,5 @@ message WifiData {
   WifiCfg config = 1;    // Configuration for the Wi-Fi module.
   WifiStatus status = 2; // Status of the Wi-Fi module.
   WifiReq request = 3;   // Wi-Fi request data.
+  WifiInfo info = 4;     // TCP information.
 }

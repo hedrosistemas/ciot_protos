@@ -36,8 +36,8 @@ message BleStatus {
   BleState state = 1;
   // Current error code
   int32 err_code = 2;
-  // Bluetooth module information
-  BleInfo info = 3;
+  // Software mac assigned
+  bool using_sw_mac = 3;
 }
 
 // Bluetooth module request
@@ -53,4 +53,5 @@ message BleData {
   BleCfg config = 1;
   BleStatus status = 2;
   BleReq request = 3;
+  BleInfo info = 4;
 }

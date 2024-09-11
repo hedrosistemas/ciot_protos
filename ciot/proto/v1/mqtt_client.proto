@@ -39,8 +39,8 @@ message MqttClientError {
 
 // Message representing configuration for MQTT client topics.
 message MqttClientTopicsCfg {
-  string d2b = 1; // Device to broker topic.
-  string b2d = 2; // Broker to device topic.
+  string pub = 1; // Topic used to publish data
+  string sub = 2; // Topic used to receive data.
 }
 
 // Message representing configuration for the MQTT client.
