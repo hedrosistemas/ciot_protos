@@ -14,6 +14,7 @@ gen:
 	protoc --$(L)_out=$(O) ciot/proto/v1/ntp.proto
 	protoc --$(L)_out=$(O) ciot/proto/v1/ota.proto
 	protoc --$(L)_out=$(O) ciot/proto/v1/storage.proto
+	protoc --$(L)_out=$(O) ciot/proto/v1/socket.proto
 	protoc --$(L)_out=$(O) ciot/proto/v1/sys.proto
 	protoc --$(L)_out=$(O) ciot/proto/v1/tcp.proto
 	protoc --$(L)_out=$(O) ciot/proto/v1/uart.proto
