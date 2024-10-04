@@ -34,4 +34,5 @@ enum CiotErr {
   DISABLED = 29;           // Feature disabled
   FAIL = 30;               // Operation failed
   INVALID_INDEX = 31;      // Invalid index
+  INVALID_KEY_SIZE = 32;   // Invalid key size
 }
