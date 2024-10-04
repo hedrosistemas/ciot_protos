@@ -6,7 +6,7 @@ package Ciot;
 enum HttpServerState {
   HTTP_SERVER_STATE_STOPPED = 0; // The HTTP server is stopped.
   HTTP_SERVER_STATE_STARTED = 1; // The HTTP server is started.
-  HTTP_SERVER_STATE_ERROR = -1;  // The HTTP server encountered an error.
+  HTTP_SERVER_STATE_ERROR = 2;  // The HTTP server encountered an error.
 }
 
 // Enum representing different types of HTTP server requests.
@@ -19,6 +19,7 @@ message HttpServerCfg {
   string address = 1; // Address of the HTTP server.
   string route = 2;   // Route for the HTTP server.
   uint32 port = 3;    // Port number for the HTTP server.
+  string root = 4;    // Server files root directory
 }
 
 // Message representing HTTP server status.

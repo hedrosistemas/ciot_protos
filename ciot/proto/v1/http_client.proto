@@ -10,7 +10,7 @@ enum HttpClientState {
   HTTP_CLIENT_STATE_CONNECTED = 3;     // The HTTP client is connected.
   HTTP_CLIENT_STATE_DATA_RECEIVED = 4; // Data has been received by the HTTP client.
   HTTP_CLIENT_STATE_TIMEOUT = 5;       // The HTTP client has timed out.
-  HTTP_CLIENT_STATE_ERROR = -1;        // The HTTP client encountered an error.
+  HTTP_CLIENT_STATE_ERROR = 6;        // The HTTP client encountered an error.
 }
 
 // Enum representing different types of HTTP client requests.

@@ -15,7 +15,7 @@ enum WifiScanState {
   WIFI_SCAN_STATE_IDLE = 0;     // Wi-Fi scan is idle.
   WIFI_SCAN_STATE_SCANNING = 1; // Wi-Fi scan is in progress.
   WIFI_SCAN_STATE_SCANNED = 2;  // Wi-Fi scan completed successfully.
-  WIFI_SCAN_STATE_ERROR = -1;   // Error occurred during Wi-Fi scan.
+  WIFI_SCAN_STATE_ERROR = 3;   // Error occurred during Wi-Fi scan.
 }
 
 // Enum representing the state of the Wi-Fi module.
@@ -39,7 +39,7 @@ message WifiApInfo {
 
 // Message representing configuration for the Wi-Fi module.
 message WifiCfg {
-  bool enabled = 1;    // Power on wifi interface
+  bool disabled = 1;   // Disable wifi interface
   string ssid = 2;     // SSID of the Wi-Fi network.
   string password = 3; // Password for the Wi-Fi network.
   WifiType type = 4;   // Type of Wi-Fi connection.

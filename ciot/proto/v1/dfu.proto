@@ -17,7 +17,7 @@ enum DfuState {
   // Dfu completed
   DFU_STATE_COMPLETED = 4;
   // Dfu error
-  DFU_STATE_ERROR = -1;
+  DFU_STATE_ERROR = 5;
 }
 
 // Dfu request types

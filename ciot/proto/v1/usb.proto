@@ -14,7 +14,6 @@ enum UsbReqType {
   USB_REQ_TYPE_UNKOWN = 0;             // Unknown USB request type.
   USB_REQ_TYPE_SEND_DATA = 1;          // Send data over USB.
   USB_REQ_TYPE_SEND_BYTES = 2;         // Send bytes over USB.
-  USB_REQ_TYPE_ENABLE_BRIDGE_MODE = 3; // Enable bridge mode for USB.
 }
 
 // Message representing configuration for the USB module.

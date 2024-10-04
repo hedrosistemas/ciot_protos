@@ -6,7 +6,7 @@ package Ciot;
 enum SocketState {
   SOCKET_STATE_CLOSED = 0; // Socket is closed.
   SOCKET_STATE_OPEN = 1; // Socket is open.
-  SOCKET_STATE_ERROR = -1; // Socket error.
+  SOCKET_STATE_ERROR = 2; // Socket error.
 }
 
 // Enum representing different types of Socket requests.

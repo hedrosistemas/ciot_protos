@@ -15,7 +15,7 @@ enum OtaState {
   OTA_STATE_FLASHING = 7;              // OTA process is flashing data.
   OTA_STATE_UPDATE_BOOT_PARTITION = 8; // OTA process is updating boot partition.
   OTA_STATE_STATE_DONE = 9;            // OTA process is done.
-  OTA_STATE_ERROR = -1;                // OTA process encountered an error.
+  OTA_STATE_ERROR = 10;                // OTA process encountered an error.
 }
 
 // Enum representing different types of OTA requests.

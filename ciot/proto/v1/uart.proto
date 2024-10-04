@@ -7,8 +7,7 @@ enum UartState {
   UART_STATE_CLOSED = 0;         // UART is closed.
   UART_STATE_STARTED = 1;        // UART is started.
   UART_STATE_INTERNAL_ERROR = 2; // UART encountered an internal error.
-  UART_STATE_CIOT_S_ERROR =
-      3; // UART encountered a CIOT-S (Custom IoT System) error.
+  UART_STATE_CIOT_S_ERROR = 3;   // UART encountered a CIOT-S (Custom IoT System) error.
 }
 
 // Enum representing different types of UART requests.
@@ -16,8 +15,6 @@ enum UartReqType {
   UART_REQ_TYPE_UNKOWN = 0;     // Unknown UART request type.
   UART_REQ_TYPE_SEND_DATA = 1;  // Request to send data via UART.
   UART_REQ_TYPE_SEND_BYTES = 2; // Request to send bytes via UART.
-  UART_REQ_TYPE_ENABLE_BRIDGE_MODE =
-      3; // Request to enable bridge mode for UART.
 }
 
 // Enum representing different UART error types.

@@ -8,16 +8,7 @@ enum MqttClientState {
   MQTT_STATE_CONNECTING = 1;    // The MQTT client is connecting.
   MQTT_STATE_DISCONNECTING = 2; // The MQTT client is disconnecting.
   MQTT_STATE_CONNECTED = 3;     // The MQTT client is connected.
-  MQTT_STATE_ERROR = -1;        // The MQTT client encountered an error.
-}
-
-// Enum representing different transports for MQTT communication.
-enum MqttClientTransport {
-  MQTT_TRANSPORT_UNKNOWN = 0;  // Unknown MQTT transport.
-  MQTT_TRANSPORT_OVER_TCP = 1; // MQTT over TCP.
-  MQTT_TRANSPORT_OVER_SSL = 2; // MQTT over SSL.
-  MQTT_TRANSPORT_OVER_WS = 3;  // MQTT over WebSocket.
-  MQTT_TRANSPORT_OVER_WSS = 4; // MQTT over Secure WebSocket.
+  MQTT_STATE_ERROR = 4;        // The MQTT client encountered an error.
 }
 
 // Enum representing different types of MQTT client requests.
@@ -49,10 +40,8 @@ message MqttClientCfg {
   string url = 2;      // URL for MQTT connection.
   string user = 3;     // Username for MQTT authentication.
   string password = 4; // Password for MQTT authentication.
-  uint32 port = 5;     // Port for MQTT connection.
-  uint32 qos = 6;      // Quality of Service level for MQTT communication.
-  MqttClientTransport transport = 7; // Transport type for MQTT communication.
-  MqttClientTopicsCfg topics = 8; // Topics configuration for MQTT communication.
+  uint32 qos = 5;      // Quality of Service level for MQTT communication.
+  MqttClientTopicsCfg topics = 6; // Topics configuration for MQTT communication.
 }
 
 // Message representing status information for the MQTT client.

@@ -33,4 +33,5 @@ enum CiotErr {
   INVALID_HEADER = 28;     // Invalid message header
   DISABLED = 29;           // Feature disabled
   FAIL = 30;               // Operation failed
+  INVALID_INDEX = 31;      // Invalid index
 }

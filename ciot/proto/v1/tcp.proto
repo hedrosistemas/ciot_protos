@@ -9,7 +9,7 @@ enum TcpState {
   TCP_STATE_DISCONNECTED = 2; // TCP module is disconnected.
   TCP_STATE_CONNECTING = 3;   // TCP module is connecting.
   TCP_STATE_CONNECTED = 4;    // TCP module is connected.
-  TCP_STATE_ERROR = -1;       // TCP module encountered an error.
+  TCP_STATE_ERROR = 5;       // TCP module encountered an error.
 }
 
 // Enum representing the state of the TCP DHCP (Dynamic Host Configuration
