@@ -45,7 +45,7 @@ enum MsgType {
 message MsgError {
   MsgHeader msg = 1;   // Type of the message.
   IfaceInfo iface = 2; // Interface information.
-  CiotErr code = 3;    // Error code.
+  Ciot.Err code = 3;    // Error code.
 }
 
 // Message representing data for a message.

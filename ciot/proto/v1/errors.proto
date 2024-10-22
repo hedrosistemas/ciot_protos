@@ -1,7 +1,9 @@
 syntax = "proto3";
 
+package Ciot;
+
 // Error codes
-enum CiotErr {
+enum Err {
   OK = 0;                  // No error
   NULL_ARG = 1;            // Null argunment
   INVALID_ID = 2;          // Invalid ID
