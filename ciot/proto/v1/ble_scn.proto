@@ -54,14 +54,18 @@ message BleScnAdv {
 message BleScnStatus {
   // Current state
   BleScnState state = 1;
-  // Last advertisement information
-  BleScnAdvInfo adv_info = 2;
   // Current error code
-  int32 err_code = 3;
+  int32 err_code = 2;
+  // ADVs counter
+  int32 advs_count = 3;
+  // ADVs filtered
+  int32 advs_filtered = 4;
+  // Last event received
+  int32 last_event = 5;
   // Current fifo lenght
-  int32 fifo_len = 4;
+  int32 fifo_len = 6;
   // Fifo maximum size
-  int32 fifo_max = 5;
+  int32 fifo_max = 7;
 }
 
 // Ble scanner request
