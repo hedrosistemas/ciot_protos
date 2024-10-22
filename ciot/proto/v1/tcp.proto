@@ -4,12 +4,13 @@ package Ciot;
 
 // Enum representing the state of the TCP module.
 enum TcpState {
-  TCP_STATE_STOPPED = 0;      // TCP module is stopped.
-  TCP_STATE_STARTED = 1;      // TCP module is started.
-  TCP_STATE_DISCONNECTED = 2; // TCP module is disconnected.
-  TCP_STATE_CONNECTING = 3;   // TCP module is connecting.
-  TCP_STATE_CONNECTED = 4;    // TCP module is connected.
-  TCP_STATE_ERROR = 5;       // TCP module encountered an error.
+  TCP_STATE_STOPPED = 0;       // TCP module is stopped.
+  TCP_STATE_STARTED = 1;       // TCP module is started.
+  TCP_STATE_DISCONNECTING = 2; // TCP module is disconnecting.
+  TCP_STATE_DISCONNECTED = 3;  // TCP module is disconnected.
+  TCP_STATE_CONNECTING = 4;    // TCP module is connecting.
+  TCP_STATE_CONNECTED = 5;     // TCP module is connected.
+  TCP_STATE_ERROR = 6;         // TCP module encountered an error.
 }
 
 // Enum representing the state of the TCP DHCP (Dynamic Host Configuration
@@ -35,11 +36,12 @@ enum TcpReqType {
 
 // Message representing configuration for the TCP module.
 message TcpCfg {
-  TcpDhcpCfg dhcp = 1; // DHCP configuration.
-  bytes ip = 2;            // IP address.
-  bytes gateway = 3;       // Gateway address.
-  bytes mask = 4;          // Subnet mask.
-  bytes dns = 5;           // DNS address.
+  bool disabled = 1;   // Disable TCP interface
+  TcpDhcpCfg dhcp = 2; // DHCP configuration.
+  bytes ip = 3;        // IP address.
+  bytes gateway = 4;   // Gateway address.
+  bytes mask = 5;      // Subnet mask.
+  bytes dns = 6;       // DNS address.
 }
 
 // Message representing DHCP status for the TCP module.
