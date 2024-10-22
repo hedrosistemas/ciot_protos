@@ -39,7 +39,7 @@ message WifiApInfo {
 
 // Message representing configuration for the Wi-Fi module.
 message WifiCfg {
-  bool disabled = 1;   // Disable wifi interface
+  bool disabled = 1;   // Disable Wi-Fi interface
   string ssid = 2;     // SSID of the Wi-Fi network.
   string password = 3; // Password for the Wi-Fi network.
   WifiType type = 4;   // Type of Wi-Fi connection.
