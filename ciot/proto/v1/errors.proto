@@ -38,4 +38,5 @@ enum Err {
   INVALID_INDEX = 31;      // Invalid index
   INVALID_KEY_SIZE = 32;   // Invalid key size
   FIFO_READ = 33;          // Error reading fifo data 
+  FIFO_WRITE = 34;         // Error writing data to fifo
 }
