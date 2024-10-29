@@ -37,4 +37,5 @@ enum Err {
   FAIL = 30;               // Operation failed
   INVALID_INDEX = 31;      // Invalid index
   INVALID_KEY_SIZE = 32;   // Invalid key size
+  FIFO_READ = 33;          // Error reading fifo data 
 }
