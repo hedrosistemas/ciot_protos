@@ -39,4 +39,7 @@ enum Err {
   INVALID_KEY_SIZE = 32;   // Invalid key size
   FIFO_READ = 33;          // Error reading fifo data 
   FIFO_WRITE = 34;         // Error writing data to fifo
+  INVALID_ADDR = 35;       // Invalid address
+  RESOURCES = 36;          // Not enough resources
+  UNKNOWN = 37;            // Unknown error
 }
