@@ -30,6 +30,7 @@ message OtaCfg {
   bool force = 2;                       // Force OTA update.
   bool encrypted = 3;                   // Encrypted OTA update.
   bool restart = 4;                     // Restart device after OTA update.
+  string partition_label = 5;           // OTA destiny parition label. Let empty to use default partition.
 }
 
 // Message representing status for the OTA process.
