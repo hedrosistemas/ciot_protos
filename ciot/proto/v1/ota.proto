@@ -3,6 +3,12 @@ syntax = "proto3";
 // Define the package for the CIOT protocol.
 package Ciot;
 
+// Enum representing the different OTA types
+enum OtaType {
+  OTA_TYPE_DEFAULT = 0;       // Default OTA type used do update firmware
+  OTA_TYPE_DATA_SPIFFS = 1;   // Data SPIFFS OTA type used to update data spiffs partition
+}
+
 // Enum representing the state of the OTA (Over-the-Air) update process.
 enum OtaState {
   OTA_STATE_IDLE = 0;                  // OTA process is idle.
@@ -30,15 +36,15 @@ message OtaCfg {
   bool force = 2;                       // Force OTA update.
   bool encrypted = 3;                   // Encrypted OTA update.
   bool restart = 4;                     // Restart device after OTA update.
-  string partition_label = 5;           // OTA destiny parition label. Let empty to use default partition.
+  OtaType type = 5;                     // OTA type
 }
 
 // Message representing status for the OTA process.
 message OtaStatus {
   OtaState state = 1;                   // State of the OTA process.
   int32 error = 2;                      // Error code, if any.
-  uint32 image_size = 3;                 // Size of the OTA image.
-  uint32 image_written = 4;                 // Size of the OTA image already read.
+  uint32 image_size = 3;                // Size of the OTA image.
+  uint32 image_written = 4;             // Size of the OTA image already read.
 }
 
 // Message representing data for an OTA request.
