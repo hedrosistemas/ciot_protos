@@ -42,4 +42,7 @@ enum Err {
   INVALID_ADDR = 35;       // Invalid address
   RESOURCES = 36;          // Not enough resources
   UNKNOWN = 37;            // Unknown error
+  READING = 38;            // Reading error
+  ERASING = 39;            // Erasing error
+  WRITING = 40;            // Writing error
 }
