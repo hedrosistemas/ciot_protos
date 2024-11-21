@@ -12,6 +12,7 @@ import "ciot/proto/v1/errors.proto";
 import "ciot/proto/v1/gpio.proto";
 import "ciot/proto/v1/http_client.proto";
 import "ciot/proto/v1/http_server.proto";
+import "ciot/proto/v1/iota.proto";
 import "ciot/proto/v1/logger.proto";
 import "ciot/proto/v1/model.proto";
 import "ciot/proto/v1/mqtt_client.proto";
@@ -73,6 +74,7 @@ message MsgData {
   Ciot.MqttClientData mqtt_client = 21; // MQTT Client data.
   Ciot.SocketData socket = 22;          // Socket data.
   Ciot.GpioData gpio = 23;              // GPIO data.
+  Ciot.IOtaData iota = 24;              // IOTA data.
 }
 
 // Message representing the header of a message.
