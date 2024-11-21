@@ -9,6 +9,7 @@ gen:
 	protoc --$(L)_out=$(O) ciot/proto/v1/http_client.proto
 	protoc --$(L)_out=$(O) ciot/proto/v1/http_server.proto
 	protoc --$(L)_out=$(O) ciot/proto/v1/iface.proto
+	protoc --$(L)_out=$(O) ciot/proto/v1/iota.proto
 	protoc --$(L)_out=$(O) ciot/proto/v1/logger.proto
 	protoc --$(L)_out=$(O) ciot/proto/v1/model.proto
 	protoc --$(L)_out=$(O) ciot/proto/v1/mqtt_client.proto
@@ -23,3 +24,4 @@ gen:
 	protoc --$(L)_out=$(O) ciot/proto/v1/uart.proto
 	protoc --$(L)_out=$(O) ciot/proto/v1/usb.proto
 	protoc --$(L)_out=$(O) ciot/proto/v1/wifi.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/msg.proto
