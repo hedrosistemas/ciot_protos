@@ -26,6 +26,8 @@ enum IfaceType {
     IFACE_TYPE_MQTT = 19;        // MQTT interface type.
     IFACE_TYPE_SOCKET = 20;      // Socket interface type.
     IFACE_TYPE_BRIDGE = 21;      // Bridge interface type.
+    IFACE_TYPE_IOTA_CLIENT = 22; // IOTA client interface type.
+    IFACE_TYPE_IOTA_SERVER = 23; // IOTA server interface type.
   }
   
   // Message representing information about an interface.
