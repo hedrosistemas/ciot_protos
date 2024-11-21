@@ -45,4 +45,5 @@ enum Err {
   READING = 38;            // Reading error
   ERASING = 39;            // Erasing error
   WRITING = 40;            // Writing error
+  INVALID_NAME = 41;       // Invalid name error
 }
