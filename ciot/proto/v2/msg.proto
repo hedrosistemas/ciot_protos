@@ -4,6 +4,7 @@ package Ciot;
 
 import "ciot/proto/v2/ciot.proto";
 import "ciot/proto/v2/errors.proto";
+import "ciot/proto/v2/http_client.proto";
 import "ciot/proto/v2/http_server.proto";
 import "ciot/proto/v2/iface.proto";
 import "ciot/proto/v2/sys.proto";
@@ -34,6 +35,7 @@ message MsgData {
     GetData get_data = 2;             // Get data request.
     Ciot.Data ciot = 3;               // CioT data.
     SysData sys = 4;                  // System data.
-    HttpServerData http_server = 5;   // HTTP Server data.
+    HttpClientData http_client = 5;   // HTTP Client data.
+    HttpServerData http_server = 6;   // HTTP Server data.
   }
 }
