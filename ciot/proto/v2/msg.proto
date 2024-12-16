@@ -2,87 +2,38 @@ syntax = "proto3";
 
 package Ciot;
 
-import "ciot/proto/v1/iface.proto";
-import "ciot/proto/v1/ble_adv.proto";
-import "ciot/proto/v1/ble_scn.proto";
-import "ciot/proto/v1/ble.proto";
-import "ciot/proto/v1/ciot.proto";
-import "ciot/proto/v1/dfu.proto";
-import "ciot/proto/v1/errors.proto";
-import "ciot/proto/v1/gpio.proto";
-import "ciot/proto/v1/http_client.proto";
-import "ciot/proto/v1/http_server.proto";
-import "ciot/proto/v1/logger.proto";
-import "ciot/proto/v1/model.proto";
-import "ciot/proto/v1/mqtt_client.proto";
-import "ciot/proto/v1/ntp.proto";
-import "ciot/proto/v1/ota.proto";
-import "ciot/proto/v1/storage.proto";
-import "ciot/proto/v1/socket.proto";
-import "ciot/proto/v1/sys.proto";
-import "ciot/proto/v1/tcp.proto";
-import "ciot/proto/v1/uart.proto";
-import "ciot/proto/v1/usb.proto";
-import "ciot/proto/v1/wifi.proto";
+import "ciot/proto/v2/ciot.proto";
+import "ciot/proto/v2/errors.proto";
+import "ciot/proto/v2/http_server.proto";
+import "ciot/proto/v2/iface.proto";
+import "ciot/proto/v2/sys.proto";
 
-// Enum representing different types of messages.
-enum MsgType {
-  MSG_TYPE_UNKNOWN = 0;      // Unknown message type.
-  MSG_TYPE_CUSTOM = 1;       // Custom message.
-  MSG_TYPE_START = 2;        // Start message.
-  MSG_TYPE_STOP = 3;         // Stop message.
-  MSG_TYPE_CONFIG = 4;       // configuration message.
-  MSG_TYPE_INFO = 5;         // information message.
-  MSG_TYPE_STATUS = 6;       // status message.
-  MSG_TYPE_SEND_PAYLOAD = 7; // Send payload message.
-  MSG_TYPE_REQUEST = 8;      // Request message.
-  MSG_TYPE_ERROR = 9;        // Error message.
-  MSG_TYPE_EVENT = 10;       // Event message.
-  MSG_TYPE_LOG = 11;         // Log message.
+enum DataType {
+  DATA_TYPE_UNKNOWN = 0;
+  DATA_TYPE_CONFIG = 1;
+  DATA_TYPE_STATUS = 2;
+  DATA_TYPE_REQUEST = 3;
+  DATA_TYPE_INFO = 4;
 }
 
-// Message representing error details for a message.
-message MsgError {
-  MsgHeader msg = 1;   // Type of the message.
-  IfaceInfo iface = 2; // Interface information.
-  Ciot.Err code = 3;    // Error code.
-}
-
-// Message representing the header of a message.
-message MsgHeader {
-  uint32 id = 1;            // Message ID.
-  MsgType type = 2;         // Message type.
-  Ciot.IfaceInfo iface = 3; // Interface information.
+message GetData {
+  DataType type = 1;
 }
 
 // Represents an CioT message
 message Msg {
-  uint32 id = 1;            // Message ID.
-  MsgType type = 2;         // Message type.
-  Ciot.IfaceInfo iface = 3; // Interface information.
-  oneof data {
-    MsgError error = 4;                   // Error data.
-    bytes payload = 5;                    // Payload data.
-    Ciot.ModelData model = 6;             // Model data.
-    Ciot.Log log = 7;                     // Log data.
-    Ciot.CiotData ciot = 8;               // CIOT data.
-    Ciot.StorageData storage = 9;         // Storage data.
-    Ciot.SysData sys = 10;                // System data.
-    Ciot.UartData uart = 11;              // UART data.
-    Ciot.UsbData usb = 12;                // USB data.
-    Ciot.TcpData tcp = 13;                // TCP data.
-    Ciot.TcpData eth = 14;                // Ethernet data.
-    Ciot.WifiData wifi = 15;              // WiFi data.
-    Ciot.BleData ble = 16;                // BLE data.
-    Ciot.BleScnData ble_scn = 17;         // BLE SCN data.
-    Ciot.BleAdvData ble_adv = 18;         // BLE ADV data.
-    Ciot.NtpData ntp = 19;                // NTP data.
-    Ciot.OtaData ota = 20;                // OTA data.
-    Ciot.DfuData dfu = 21;                // DFU data.
-    Ciot.HttpServerData http_server = 22; // HTTP Server data.
-    Ciot.HttpClientData http_client = 23; // HTTP Client data.
-    Ciot.MqttClientData mqtt_client = 24; // MQTT Client data.
-    Ciot.SocketData socket = 25;          // Socket data.
-    Ciot.GpioData gpio = 26;              // GPIO data.
+  uint32 id = 1;                   // Message ID.
+  IfaceInfo iface = 2;             // Interface information.
+  Err error = 3;                   // Error code.
+  MsgData data = 4;                // Message data.
+}
+
+message MsgData {
+  oneof type {
+    // bytes raw = 1;                 // Raw data.
+    GetData get_data = 2;             // Get data request.
+    Ciot.Data ciot = 3;               // CioT data.
+    SysData sys = 4;                  // System data.
+    HttpServerData http_server = 5;   // HTTP Server data.
   }
 }
