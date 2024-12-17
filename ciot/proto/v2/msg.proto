@@ -6,6 +6,7 @@ import "ciot/proto/v2/ciot.proto";
 import "ciot/proto/v2/errors.proto";
 import "ciot/proto/v2/http_client.proto";
 import "ciot/proto/v2/http_server.proto";
+import "ciot/proto/v2/mqtt_client.proto";
 import "ciot/proto/v2/iface.proto";
 import "ciot/proto/v2/sys.proto";
 
@@ -37,5 +38,6 @@ message MsgData {
     SysData sys = 4;                  // System data.
     HttpClientData http_client = 5;   // HTTP Client data.
     HttpServerData http_server = 6;   // HTTP Server data.
+    MqttClientData mqtt_client = 7;   // MQTT Client data.
   }
 }
