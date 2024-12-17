@@ -20,8 +20,8 @@ enum SerializationType {
 
 // Message representing CIOT information.
 message Info {
-  bytes version = 1; // CIOT library version
-  bytes ifaces = 2;  // CIOT ifaces types list
+  bytes version = 1;              // CIOT library version
+  repeated IfaceType ifaces = 2;  // CIOT ifaces types list
 }
 
 // Message representing CIOT status.
