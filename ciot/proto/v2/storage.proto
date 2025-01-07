@@ -7,23 +7,16 @@ enum StorageState {
   STORAGE_STATE_IDLE = 0;          // Storage module is idle.
 }
 
-// Enum representing different types of storage requests.
-enum StorageReqType {
-  STORAGE_REQ_TYPE_UNKOWN = 0;     // Unknown storage request type.
-  STORAGE_REQ_TYPE_REQ_SAVE = 1;   // Request to save data to storage.
-  STORAGE_REQ_TYPE_REQ_LOAD = 2;   // Request to load data from storage.
-  STORAGE_REQ_TYPE_REQ_DELETE = 3; // Request to delete data from storage.
-  STORAGE_REQ_TYPE_REQ_FORMAT = 4; // Request to format the storage.
-}
-
 // Enum representing different types of storage.
 enum StorageType {
   STORAGE_TYPE_UNKNOWN = 0;         // Unknown storage type.
   STORAGE_TYPE_EEPROM = 1;          // EEPROM storage type.
   STORAGE_TYPE_FLASH = 2;           // Flash storage type.
   STORAGE_TYPE_FS = 3;              // File system storage type.
-  STORAGE_TYPE_PARTITION = 4;       // Partition storage type.
 }
+
+// Stop storage interface
+message StorageStop {}
 
 // Message representing configuration for the storage module.
 message StorageCfg {
@@ -42,22 +35,36 @@ message StorageInfo {
 }
 
 // Message representing data for a storage request.
-message StorageReqData {
+message StorageFile {
   string path = 1;                  // Path for the storage operation.
   bytes data = 2;                   // Data for the storage operation.
 }
 
+// Message representing a request to delete a file.
+message StorageReqDelete {
+  string path = 1;                  // Path for the storage operation.
+}
+
+// Message representing a request to format the storage interface.
+message StorageReqFormat {}
 
 // Message representing a storage request.
 message StorageReq {
-  StorageReqType type = 1;          // Type of the storage request.
-  StorageReqData data = 2;          // Data associated with the request.
+  oneof type {
+    StorageFile save = 1;
+    StorageFile load = 2;
+    StorageFile delete = 3;
+    StorageReqFormat format = 4;
+  }
 }
 
 // Message representing data for the storage module.
 message StorageData {
-  StorageCfg config = 1;            // Configuration for the storage module.
-  StorageStatus status = 2;          // Status of the storage module.
-  StorageReq request = 3;            // Storage request data.
-  StorageInfo info = 4;              // Storage information data.
+  oneof type {
+    StorageStop stop = 1;       // Stop storage interface
+    StorageCfg config = 2;      // Configuration for the storage module.
+    StorageStatus status = 3;   // Status of the storage module.
+    StorageReq request = 4;     // Storage request data.
+    StorageInfo info = 5;       // Storage information data.
+  }
 }

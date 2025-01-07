@@ -9,6 +9,11 @@ enum HttpServerState {
   HTTP_SERVER_STATE_ERROR = 2;   // The HTTP server encountered an error.
 }
 
+// Message used to stop HTTP server interface
+message HttpServerStop {
+
+}
+
 // Message representing HTTP server configuration.
 message HttpServerCfg {
   string address = 1; // Address of the HTTP server.
@@ -29,8 +34,9 @@ message HttpServerReq {}
 // Message representing HTTP server data.
 message HttpServerData {
   oneof type {
-    HttpServerCfg config = 1;    // Configuration for the HTTP server.
-    HttpServerStatus status = 2; // Status of the HTTP server.
-    HttpServerReq request = 3;   // HTTP server request data.
+    HttpServerStop stop = 1;     // Stop HTTP server.
+    HttpServerCfg config = 2;    // Configuration for the HTTP server.
+    HttpServerStatus status = 3; // Status of the HTTP server.
+    HttpServerReq request = 4;   // HTTP server request data.
   }
 }

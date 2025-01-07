@@ -43,6 +43,11 @@ message MqttClientTopicsCfg {
   string sub = 2; // Topic used to receive data.
 }
 
+// Message used to stop MQTT client interface
+message MqttClientStop {
+
+}
+
 // Message representing configuration for the MQTT client.
 message MqttClientCfg {
   string client_id = 1;                 // Client ID for MQTT connection.
@@ -87,8 +92,9 @@ message MqttClientReq {
 // Message representing data for the MQTT client.
 message MqttClientData {
   oneof type {
-    MqttClientCfg config = 1;    // Configuration for the MQTT client.
-    MqttClientStatus status = 2; // Status of the MQTT client.
-    MqttClientReq request = 3;   // MQTT client request data.
+    MqttClientStop stop = 1;     // Stop MQTT client.
+    MqttClientCfg config = 2;    // Configuration for the MQTT client.
+    MqttClientStatus status = 3; // Status of the MQTT client.
+    MqttClientReq request = 4;   // MQTT client request data.
   }
 }

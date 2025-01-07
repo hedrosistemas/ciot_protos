@@ -30,6 +30,9 @@ enum UartError {
   UART_ERROR_UNKNOWN = -1;       // Unknown UART event error.
 }
 
+// Message used to stop uart interface
+message UartStop {}
+
 // Message representing configuration for the UART module.
 message UartCfg {
   int32 baud_rate = 1;   // Baud rate for UART.
@@ -57,11 +60,12 @@ message UartReq {
   }
 }
 
-// Message representing data for the UART module.
+// Message representing data for the UART interface.
 message UartData {
   oneof type {
-    UartCfg config = 1;    // Configuration for the UART module.
-    UartStatus status = 2; // Status of the UART module.
-    UartReq request = 3;   // UART request data.
+    UartStop stop = 1;     // Stop UART interface.
+    UartCfg config = 2;    // Configuration for the UART interface.
+    UartStatus status = 3; // Status of the UART interface.
+    UartReq request = 4;   // UART request data.
   }
 }

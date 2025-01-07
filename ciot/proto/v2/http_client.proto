@@ -42,6 +42,11 @@ enum HttpClientTransportType {
   HTTP_TRANSPORT_SSL = 2;     // SSL transport.
 }
 
+// Message used to stop HTTP client interface
+message HttpClientStop {
+
+}
+
 // Message representing HTTP client configuration.
 message HttpClientCfg {
   string url = 1;                        // URL for the HTTP request.
@@ -71,7 +76,7 @@ message HttpClientReqSetHeader {
 // Message representing an HTTP client request.
 message HttpClientReq {
   oneof type {
-    HttpClientReqSend send = 1;           // Data to be sent in the request.
+    HttpClientReqSend send = 1;            // Data to be sent in the request.
     HttpClientReqSetHeader set_header = 2; // Header to be set in the request.
   }
 }
@@ -79,8 +84,9 @@ message HttpClientReq {
 // Message representing HTTP client data.
 message HttpClientData {
   oneof type {
-    HttpClientCfg config = 1;    // Configuration for the HTTP client.
-    HttpClientStatus status = 2; // Status of the HTTP client.
-    HttpClientReq request = 3;   // HTTP client request.
+    HttpClientStop stop = 1;     // Stop HTTP client.
+    HttpClientCfg config = 2;    // Configuration for the HTTP client.
+    HttpClientStatus status = 3; // Status of the HTTP client.
+    HttpClientReq request = 4;   // HTTP client request.
   }
 }

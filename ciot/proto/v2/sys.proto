@@ -21,6 +21,9 @@ enum SysHw {
   SYS_HW_WIN32 = 7;   // Windows device
 }
 
+// Message used to stop system interface
+message SysStop {}
+
 // Message representing configuration for the system.
 message SysCfg {}
 
@@ -69,9 +72,10 @@ message SysReq {
 // Message representing data for the system.
 message SysData {
   oneof type {
-    SysCfg config = 1;    // Configuration for the system.
-    SysStatus status = 2; // Status of the system.
-    SysReq request = 3;   // System request data.
-    SysInfo info = 4;     // System info.
+    SysStop stop = 1;
+    SysCfg config = 2;    // Configuration for the system.
+    SysStatus status = 3; // Status of the system.
+    SysReq request = 4;   // System request data.
+    SysInfo info = 5;     // System info.
   }
 }
