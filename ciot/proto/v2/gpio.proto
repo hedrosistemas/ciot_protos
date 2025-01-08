@@ -31,12 +31,17 @@ message GpioStop {
   GpioCfg cfg = 1; // Config of gpio to be stopped
 }
 
+// Gpio pin configuration
+message GpioPinCfg {
+  uint32 num = 1;       // Gpio pin number
+  GpioMode mode = 2;    // Gpio mode
+  GpioPull pull = 3;    // Gpio pullup/pulldown configuration
+}
+
 // Message representing gpio configuration
 message GpioCfg {
-  bytes pins = 1;            // Gpio pin list
-  bytes modes = 2;           // Gpio pin modes list
-  bytes pull = 3;            // Gpio pull configurations list
-  uint32 blink_interval = 5; // Interval between gpio blinks in miliseconds
+  repeated GpioPinCfg pins = 1;  // Pins list configuration
+  uint32 blink_interval = 2;     // Interval between gpio blinks in miliseconds
 }
 
 // Message used to read/set all gpio states
