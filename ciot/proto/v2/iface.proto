@@ -4,7 +4,7 @@ package Ciot;
 
 // Enum representing different interface types.
 enum IfaceType {
-  IFACE_TYPE_UNKNOWN = 0;      // Unknown interface type.
+  IFACE_TYPE_UNDEFINED = 0;    // Undefined interface type.
   IFACE_TYPE_CUSTOM = 1;       // Custom interface type.
   IFACE_TYPE_CIOT = 2;         // CIOT interface type.
   IFACE_TYPE_STORAGE = 3;      // Storage interface type.
@@ -28,6 +28,7 @@ enum IfaceType {
   IFACE_TYPE_BRIDGE = 21;      // Bridge interface type.
   IFACE_TYPE_IOTA_CLIENT = 22; // IOTA client interface type.
   IFACE_TYPE_IOTA_SERVER = 23; // IOTA server interface type.
+  IFACE_TYPE_LOG = 24;         // LOG interface type.
 }
 
 // Enum representing different states of the interface request.

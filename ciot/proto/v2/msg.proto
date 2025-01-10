@@ -20,6 +20,7 @@ import "ciot/proto/v2/ota.proto";
 import "ciot/proto/v2/storage.proto";
 import "ciot/proto/v2/tcp.proto";
 import "ciot/proto/v2/wifi.proto";
+import "ciot/proto/v2/logger.proto";
 
 enum DataType {
   DATA_TYPE_UNKNOWN = 0;
@@ -62,5 +63,6 @@ message MsgData {
     StorageData storage = 16;         // Storage data.
     TcpData eth = 17;                 // Ethernet data.
     WifiData wifi = 18;               // WiFi data.
+    LogData log = 19;                 // Log data.
   }
 }
