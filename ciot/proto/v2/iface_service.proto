@@ -4,6 +4,7 @@ package Ciot;
 
 import "ciot/proto/v2/iface.proto";
 import "ciot/proto/v2/msg.proto";
+import "ciot/proto/v2/event.proto";
 import "google/protobuf/empty.proto";
 
 option csharp_namespace = "Ciot.Protos.V2";
@@ -17,6 +18,7 @@ service IfaceService {
 	rpc SelectIface(SelectIfaceRequest) returns (SelectIfaceResponse);
 	rpc GetSelectedIface(google.protobuf.Empty) returns (GetSelectedIfaceResponse);
 	rpc SendMessage(SendMessageRequest) returns (SendMessageResponse);
+	rpc SubscribeToEvents(SubscribeToEventsRequest) returns (stream Event);
 }
 
 message GetIfacesResponse {
@@ -74,4 +76,9 @@ message SendMessageRequest {
 
 message SendMessageResponse {
 	Msg message = 1;
+}
+
+message SubscribeToEventsRequest {
+	string id = 1;
+	IfaceInfo iface = 2;
 }
