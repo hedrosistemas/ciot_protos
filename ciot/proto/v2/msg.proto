@@ -23,6 +23,8 @@ import "ciot/proto/v2/wifi.proto";
 import "ciot/proto/v2/logger.proto";
 import "ciot/proto/v2/usb.proto";
 
+option csharp_namespace = "Ciot.Protos.V2";
+
 enum DataType {
   DATA_TYPE_UNKNOWN = 0;
   DATA_TYPE_STOP = 1;

@@ -4,6 +4,8 @@ package Ciot;
 
 import "ciot/proto/v2/errors.proto";
 
+option csharp_namespace = "Ciot.Protos.V2";
+
 // Possible ble scanner states
 enum BleScnState {
   // Idle state

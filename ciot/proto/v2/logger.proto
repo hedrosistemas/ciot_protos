@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package Ciot;
 
+option csharp_namespace = "Ciot.Protos.V2";
+
 enum LogLevel {
     LOG_LEVEL_NONE = 0;
     LOG_LEVEL_ERROR = 1;

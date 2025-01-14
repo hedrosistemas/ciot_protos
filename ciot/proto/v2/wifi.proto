@@ -4,6 +4,8 @@ package Ciot;
 
 import "ciot/proto/v2/tcp.proto";
 
+option csharp_namespace = "Ciot.Protos.V2";
+
 // Enum representing the type of Wi-Fi connection.
 enum WifiType {
   WIFI_TYPE_STA = 0; // Wi-Fi station mode.

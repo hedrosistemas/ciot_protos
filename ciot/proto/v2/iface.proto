@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package Ciot;
 
+option csharp_namespace = "Ciot.Protos.V2";
+
 // Enum representing different interface types.
 enum IfaceType {
   IFACE_TYPE_UNDEFINED = 0;    // Undefined interface type.

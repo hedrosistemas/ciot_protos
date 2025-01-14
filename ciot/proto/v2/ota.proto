@@ -3,6 +3,8 @@ syntax = "proto3";
 // Define the package for the CIOT protocol.
 package Ciot;
 
+option csharp_namespace = "Ciot.Protos.V2";
+
 // Enum representing the different OTA types
 enum OtaType {
   OTA_TYPE_DEFAULT = 0;       // Default OTA type used do update firmware

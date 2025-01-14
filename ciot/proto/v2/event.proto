@@ -4,6 +4,8 @@ package Ciot;
 
 import "ciot/proto/v2/msg.proto";
 
+option csharp_namespace = "Ciot.Protos.V2";
+
 // Enum representing different event types
 enum EventType {
   EVENT_TYPE_UNKNOWN = 0;       // Unknown event type

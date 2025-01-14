@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package Ciot;
 
+option csharp_namespace = "Ciot.Protos.V2";
+
 // Enum representing the state of the HTTP server.
 enum HttpServerState {
   HTTP_SERVER_STATE_STOPPED = 0; // The HTTP server is stopped.

@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package Ciot;
 
+option csharp_namespace = "Ciot.Protos.V2";
+
 // Enum representing the state of the MQTT client.
 enum MqttClientState {
   MQTT_CLIENT_STATE_DISCONNECTED = 0;  // The MQTT client is disconnected.

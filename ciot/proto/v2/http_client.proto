@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package Ciot;
 
+option csharp_namespace = "Ciot.Protos.V2";
+
 // Enum representing the state of the HTTP client.
 enum HttpClientState {
   HTTP_CLIENT_STATE_IDLE = 0;          // The HTTP client is idle.

@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package Ciot;
 
+option csharp_namespace = "Ciot.Protos.V2";
+
 // Enum representing different types of system requests.
 enum SysReqCmd {
   SYS_REQ_CMD_UNKOWN = 0;   // Unknown system request type.

@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package Ciot;
 
+option csharp_namespace = "Ciot.Protos.V2";
+
 // Enum representing the state of the UART module.
 enum UartState {
   UART_STATE_CLOSED = 0;         // UART is closed.
