@@ -5,8 +5,6 @@ package Ciot;
 import "ciot/proto/v2/msg.proto";
 import "google/protobuf/empty.proto";
 
-option csharp_namespace = "Ciot.Sdk.Protos.V2";
-
 service ConfigService {
 	rpc SetConfig(SetConfigRequest) returns (SetConfigResponse);
 	rpc GetConfig(GetConfigRequest) returns (GetConfigResponse);
