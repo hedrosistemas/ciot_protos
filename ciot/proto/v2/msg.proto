@@ -21,6 +21,7 @@ import "ciot/proto/v2/storage.proto";
 import "ciot/proto/v2/tcp.proto";
 import "ciot/proto/v2/wifi.proto";
 import "ciot/proto/v2/logger.proto";
+import "ciot/proto/v2/usb.proto";
 
 enum DataType {
   DATA_TYPE_UNKNOWN = 0;
@@ -64,5 +65,6 @@ message MsgData {
     TcpData eth = 17;                 // Ethernet data.
     WifiData wifi = 18;               // WiFi data.
     LogData log = 19;                 // Log data.
+    UsbData usb = 20;                 // USB data.
   }
 }
