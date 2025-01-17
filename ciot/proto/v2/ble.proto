@@ -34,7 +34,7 @@ message BleStatus {
   // Current state
   BleState state = 1;
   // Current error code
-  int32 err_code = 2;
+  uint32 err_code = 2;
   // Software mac assigned
   bool using_sw_mac = 3;
 }

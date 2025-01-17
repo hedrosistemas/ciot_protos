@@ -31,12 +31,12 @@ enum MqttClientBrokerKind {
 
 // Message representing error details for the MQTT client.
 message MqttClientError {
-  int32 tls_last_err = 1;         // TLS last error code.
-  int32 tls_stack_err = 2;        // TLS stack error code.
-  int32 tls_cert_verify_flags = 3; // TLS certificate verification flags.
-  int32 type = 4;               // Type of the error.
-  int32 code = 5;               // Error code.
-  int32 transport_sock = 6;      // Transport socket error.
+  uint32 tls_last_err = 1;         // TLS last error code.
+  uint32 tls_stack_err = 2;        // TLS stack error code.
+  uint32 tls_cert_verify_flags = 3; // TLS certificate verification flags.
+  uint32 type = 4;               // Type of the error.
+  uint32 code = 5;               // Error code.
+  uint32 transport_sock = 6;      // Transport socket error.
 }
 
 // Message representing configuration for MQTT client topics.
@@ -74,13 +74,13 @@ message MqttClientStatus {
 message MqttClientReqPublish {
   string topic = 1;  // Topic for publishing.
   bytes payload = 2; // Message payload.
-  int32 qos = 3;     // Quality of Service level for the publish request.
+  uint32 qos = 3;    // Quality of Service level for the publish request.
 }
 
 // Message representing a subscribe request for the MQTT client.
 message MqttClientReqSubscribe {
   string topic = 1; // Topic to subscribe to.
-  int32 qos = 2;    // Quality of Service level for the subscribe request.
+  uint32 qos = 2;   // Quality of Service level for the subscribe request.
 }
 
 // Message representing a request for the MQTT client.

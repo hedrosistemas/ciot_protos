@@ -28,12 +28,12 @@ message StorageCfg {
 // Message representing status for the storage module.
 message StorageStatus {
   StorageState state = 1;           // State of the storage module.
-  int32 free_space = 2;             // Storage module free space
+  uint32 free_space = 2;             // Storage module free space
 }
 
 // Message representing storage module information.
 message StorageInfo {
-  int32 total_size = 1;
+  uint32 total_size = 1;
 }
 
 // Message representing data for a storage request.

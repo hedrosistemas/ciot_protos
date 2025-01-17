@@ -41,7 +41,7 @@ message DfuCfg {
 // Dfu status
 message DfuStatus {
   DfuState state = 1;       // Dfu current state
-  int32 code = 2;           // Dfu response/status code
+  uint32 code = 2;          // Dfu response/status code
   Err error = 3;            // Dfu error code
   uint32 image_size = 4;    // Dfu image size
   uint32 image_written = 5; // Dfu image written on client

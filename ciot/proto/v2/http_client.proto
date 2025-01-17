@@ -60,7 +60,7 @@ message HttpClientCfg {
 // Message representing HTTP client status.
 message HttpClientStatus {
   HttpClientState state = 1; // State of the HTTP client.
-  int32 error = 2;           // Error code, if any.
+  uint32 error = 2;           // Error code, if any.
 }
 
 // Message representing data to be sent by the HTTP client.

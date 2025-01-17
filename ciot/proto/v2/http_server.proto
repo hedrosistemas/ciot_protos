@@ -27,7 +27,7 @@ message HttpServerCfg {
 // Message representing HTTP server status.
 message HttpServerStatus {
   HttpServerState state = 1; // State of the HTTP server.
-  int32 error = 2;           // Error code, if any.
+  uint32 error = 2;           // Error code, if any.
 }
 
 // Message representing an HTTP server request.

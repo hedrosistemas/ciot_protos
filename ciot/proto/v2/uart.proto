@@ -37,13 +37,13 @@ message UartStop {}
 
 // Message representing configuration for the UART module.
 message UartCfg {
-  int32 baud_rate = 1;   // Baud rate for UART.
-  int32 num = 2;         // UART number.
-  int32 rx_pin = 3;      // RX pin number.
-  int32 tx_pin = 4;      // TX pin number.
-  int32 rts_pin = 5;     // RTS pin number.
-  int32 cts_pin = 6;     // CTS pin number.
-  int32 parity = 7;      // Parity for UART.
+  uint32 baud_rate = 1;   // Baud rate for UART.
+  uint32 num = 2;         // UART number.
+  uint32 rx_pin = 3;      // RX pin number.
+  uint32 tx_pin = 4;      // TX pin number.
+  uint32 rts_pin = 5;     // RTS pin number.
+  uint32 cts_pin = 6;     // CTS pin number.
+  uint32 parity = 7;      // Parity for UART.
   bool flow_control = 8; // Flow control for UART.
   bool dtr = 9;          // DTR (Data Terminal Ready) signal.
   bool bridge_mode = 10; // Bridge mode for UART.

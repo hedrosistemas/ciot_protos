@@ -27,7 +27,7 @@ message BleAdvCfg {
 // Ble adv status
 message BleAdvStatus {
   BleAdvState state = 1;
-  int32 err_code = 2;
+  uint32 err_code = 2;
 }
 
 // Ble adv request

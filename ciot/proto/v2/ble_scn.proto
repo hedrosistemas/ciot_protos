@@ -40,7 +40,7 @@ message BleScnAdvInfo {
   // Device mac
   bytes mac = 1;
   // Signal strenght
-  int32 rssi = 2;
+  sint32 rssi = 2;
 }
 
 // Ble scanner advertisement
@@ -58,11 +58,11 @@ message BleScnStatus {
   // Current error code
   Err err_code = 2;
   // ADVs counter
-  int32 advs_losted = 3;
+  uint32 advs_losted = 3;
   // Current fifo lenght
-  int32 fifo_len = 4;
+  uint32 fifo_len = 4;
   // Fifo maximum size
-  int32 fifo_max = 5;
+  uint32 fifo_max = 5;
 }
 
 // Ble scanner request
