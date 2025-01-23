@@ -2,9 +2,11 @@ syntax = "proto3";
 
 package Ciot;
 
+option csharp_namespace = "Ciot.Protos.V2";
+
 // Enum representing different interface types.
 enum IfaceType {
-  IFACE_TYPE_UNKNOWN = 0;      // Unknown interface type.
+  IFACE_TYPE_UNDEFINED = 0;    // Undefined interface type.
   IFACE_TYPE_CUSTOM = 1;       // Custom interface type.
   IFACE_TYPE_CIOT = 2;         // CIOT interface type.
   IFACE_TYPE_STORAGE = 3;      // Storage interface type.
@@ -23,11 +25,12 @@ enum IfaceType {
   IFACE_TYPE_DFU = 16;         // DFU interface type.
   IFACE_TYPE_HTTP_CLIENT = 17; // HTTP Client interface type.
   IFACE_TYPE_HTTP_SERVER = 18; // HTTP Server interface type.
-  IFACE_TYPE_MQTT = 19;        // MQTT interface type.
+  IFACE_TYPE_MQTT_CLIENT = 19; // MQTT interface type.
   IFACE_TYPE_SOCKET = 20;      // Socket interface type.
   IFACE_TYPE_BRIDGE = 21;      // Bridge interface type.
   IFACE_TYPE_IOTA_CLIENT = 22; // IOTA client interface type.
   IFACE_TYPE_IOTA_SERVER = 23; // IOTA server interface type.
+  IFACE_TYPE_LOG = 24;         // LOG interface type.
 }
 
 // Enum representing different states of the interface request.
