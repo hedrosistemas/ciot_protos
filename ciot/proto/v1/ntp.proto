@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package Ciot;
 
+option csharp_namespace = "Ciot.Protos.V1";
+
 // Enum representing the state of the NTP module.
 enum NtpState {
   NTP_STATE_RESET = 0;       // NTP state: reset.

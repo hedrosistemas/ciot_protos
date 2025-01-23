@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package Ciot;
 
+option csharp_namespace = "Ciot.Protos.V1";
+
 // Enum representing the state of the storage module.
 enum StorageState {
   STORAGE_STATE_IDLE = 0;          // Storage module is idle.
