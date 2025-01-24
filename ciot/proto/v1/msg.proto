@@ -26,6 +26,8 @@ import "ciot/proto/v1/uart.proto";
 import "ciot/proto/v1/usb.proto";
 import "ciot/proto/v1/wifi.proto";
 
+option csharp_namespace = "Ciot.Protos.V1";
+
 // Enum representing different types of messages.
 enum MsgType {
   MSG_TYPE_UNKNOWN = 0;      // Unknown message type.

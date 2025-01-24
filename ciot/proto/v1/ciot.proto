@@ -4,6 +4,8 @@ package Ciot;
 
 import "ciot/proto/v1/iface.proto";
 
+option csharp_namespace = "Ciot.Protos.V1";
+
 // Enum representing the state of CIOT.
 enum CiotState {
   CIOT_STATE_IDLE = 0;     // CIOT core is in an idle state.
