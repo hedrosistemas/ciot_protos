@@ -2,14 +2,14 @@ syntax = "proto3";
 
 package Ciot;
 
-import "ciot/proto/v2/iface.proto";
 import "ciot/proto/v2/msg.proto";
+import "ciot/proto/v2/iface.proto";
 import "ciot/proto/v2/event.proto";
 import "google/protobuf/empty.proto";
 
 option csharp_namespace = "Ciot.Protos.V2";
 
-service IfaceService {
+service IfaceManagerService {
 	rpc CreateIface(CreateIfaceRequest) returns (CreateIfaceResponse);
 	rpc GetIface(GetIfaceRequest) returns (GetIfaceResponse);
 	rpc GetIfaces(google.protobuf.Empty) returns (GetIfacesResponse);
@@ -21,8 +21,16 @@ service IfaceService {
 	rpc SubscribeToEvents(SubscribeToEventsRequest) returns (stream Event);
 }
 
-message GetIfacesResponse {
-	repeated IfaceInfo ifaces = 1;
+message IfacesList {
+	repeated Msg items = 1;
+}
+
+message CreateIfaceRequest {
+	Msg message = 1;
+}
+
+message CreateIfaceResponse {
+	Msg message = 1;
 }
 
 message GetIfaceRequest {
@@ -30,24 +38,19 @@ message GetIfaceRequest {
 }
 
 message GetIfaceResponse {
-	IfaceInfo iface = 1;
+	Msg message = 1;
 }
 
-message CreateIfaceRequest {
-	IfaceType type = 1;
-}
-
-message CreateIfaceResponse {
-	IfaceInfo iface = 2;
+message GetIfacesResponse {
+	repeated Msg list = 1;
 }
 
 message UpdateIfaceRequest {
-	uint32 id = 1;
-	IfaceType type = 2;
+	Msg message = 1;
 }
 
 message UpdateIfaceResponse {
-	IfaceInfo iface = 1;
+	Msg message = 1;
 }
 
 message DeleteIfaceRequest {
@@ -55,7 +58,7 @@ message DeleteIfaceRequest {
 }
 
 message DeleteIfaceResponse {
-	IfaceInfo iface = 1;
+	Msg message = 1;
 }
 
 message SelectIfaceRequest {

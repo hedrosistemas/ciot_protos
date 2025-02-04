@@ -38,6 +38,12 @@ message GetData {
   DataType type = 1;
 }
 
+message Common {
+  oneof type {
+    bool stop = 1;
+  }
+}
+
 // Represents an CioT message
 message Msg {
   uint32 id = 1;                   // Message ID.
@@ -49,6 +55,7 @@ message Msg {
 message MsgData {
   oneof type {
     // bytes raw = 1;                 // Raw data.
+    Common common = 1;                // Common data.
     GetData get_data = 2;             // Get data request.
     Ciot.Data ciot = 3;               // CioT data.
     SysData sys = 4;                  // System data.
