@@ -1,8 +1,25 @@
 gen:
+	protoc --$(L)_out=$(O) ciot/proto/v2/ble_adv.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/ble_scn.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/ble.proto
 	protoc --$(L)_out=$(O) ciot/proto/v2/ciot.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/dfu.proto
 	protoc --$(L)_out=$(O) ciot/proto/v2/errors.proto
 	protoc --$(L)_out=$(O) ciot/proto/v2/event.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/gpio.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/http_client.proto
 	protoc --$(L)_out=$(O) ciot/proto/v2/http_server.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/iface_manager.proto
 	protoc --$(L)_out=$(O) ciot/proto/v2/iface.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/logger.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/logger.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/mqtt_client.proto
 	protoc --$(L)_out=$(O) ciot/proto/v2/msg.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/ntp.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/ota.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/storage.proto
 	protoc --$(L)_out=$(O) ciot/proto/v2/sys.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/tcp.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/uart.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/usb.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/wifi.proto
