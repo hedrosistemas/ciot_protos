@@ -67,6 +67,6 @@ message StorageData {
     StorageCfg config = 2;      // Configuration for the storage module.
     StorageStatus status = 3;   // Status of the storage module.
     StorageReq request = 4;     // Storage request data.
-    StorageInfo info = 5;       // Storage information data.
+    StorageInfo info = 6;       // Storage information data.
   }
 }

@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package Ciot;
+
+import "ciot/proto/v2/mbus.proto";
+import "ciot/proto/v2/uart.proto";
+
+option csharp_namespace = "Ciot.Protos.V2";
+
+// Enum representing the state of the Modbus server.
+enum MbusServerState {
+  MBUS_SERVER_STATE_STOPPED = 0; // The Modbus server is stopped.
+  MBUS_SERVER_STATE_STARTED = 1; // The Modbus server is started.
+  MBUS_SERVER_STATE_ERROR = 2;   // The Modbus server encountered an error.
+}
+
+// Message used to stop Modbus server interface
+message MbusServerStop {
+
+}
+
+// Message representing Modbus RTU configuration
+message MbusServerRtuCfg {
+  uint32 server_id = 1;     // Server ID
+  UartCfg serial_cfg = 2;   // Serial port config
+}
+
+// Message representing Modbus TCP configuration
+message MbusServerTcpCfg {
+  uint32 port = 1;             // Server port
+  uint32 max_connections = 2;  // Max simultaneos connections
+}
+
+// Message representing Modbus server configuration.
+message MbusServerCfg {
+  oneof type {
+    MbusServerRtuCfg rtu = 1; // Modbus RTU configuration
+    MbusServerTcpCfg tcp = 2; // Modbus TCP configuration 
+  }
+}
+
+// Message representing Modbus server status.
+message MbusServerStatus {
+  MbusServerState state = 1; // State of the Modbus server.
+}
+
+// Message representing an Modbus server request.
+message MbusServerReq {}
+
+// Message representing Modbus server data.
+message MbusServerData {
+  oneof type {
+    MbusServerStop stop = 1;     // Stop Modbus server.
+    MbusServerCfg config = 2;    // Configuration for the Modbus server.
+    MbusServerStatus status = 3; // Status of the Modbus server.
+    MbusServerReq request = 4;   // Modbus server request data.
+  }
+}

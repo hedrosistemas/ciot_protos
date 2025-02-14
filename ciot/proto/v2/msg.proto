@@ -22,6 +22,8 @@ import "ciot/proto/v2/tcp.proto";
 import "ciot/proto/v2/wifi.proto";
 import "ciot/proto/v2/logger.proto";
 import "ciot/proto/v2/usb.proto";
+import "ciot/proto/v2/mbus_client.proto";
+import "ciot/proto/v2/mbus_server.proto";
 
 option csharp_namespace = "Ciot.Protos.V2";
 
@@ -75,5 +77,7 @@ message MsgData {
     WifiData wifi = 18;               // WiFi data.
     LogData log = 19;                 // Log data.
     UsbData usb = 20;                 // USB data.
+    MbusClientData mbus_client = 21;  // Modbus client data.
+    MbusServerData mbus_server = 22;  // Modbus server data.
   }
 }

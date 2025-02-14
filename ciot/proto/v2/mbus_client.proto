@@ -1,0 +1,90 @@
+syntax = "proto3";
+
+package Ciot;
+
+import "ciot/proto/v2/mbus.proto";
+import "ciot/proto/v2/uart.proto";
+
+option csharp_namespace = "Ciot.Protos.V2";
+
+// Enum representing Modbus client states.
+enum MbusClientState {
+  MBUS_CLIENT_STATE_STOPPED = 0; // Modbus client is stopped.
+  MBUS_CLIENT_STATE_STARTED = 1; // Modbus client is started.
+  MBUS_CLIENT_STATE_ERROR = 2;   // Modbus client encountered an error.
+}
+
+// Message used to stop Modbus client interface
+message MbusClientStop {}
+
+// Message representing Modbus RTU configuration
+message MbusClientRtuCfg {
+  uint32 server_id = 1;     // Server ID
+  UartCfg serial_cfg = 2;   // Serial port config
+}
+
+// Message representing Modbus TCP configuration
+message MbusClientTcpCfg {
+  bytes ip = 1;     // Server IP Address (4 bytes)
+  uint32 port = 2;  // Server port
+}
+
+// Message representing Modbus client configuration.
+message MbusClientCfg {
+  oneof type {
+    MbusClientRtuCfg rtu = 1;          // Modbus RTU configuration
+    MbusClientTcpCfg tcp = 2;          // Modbus TCP configuration
+  }
+  uint32 timeout = 3;                  // Timeout in milliseconds
+  uint32 pool_interval = 4;            // Modbus client pooling interval in milliseconds
+  MbusClientFunctionReq function = 5;  // Optional function to run on pooling
+}
+
+// Message representing Modbus client status.
+message MbusClientStatus {
+  MbusClientState state = 1; // State of the Modbus client.
+  MbusError error = 2;       // Modbus client error code.
+}
+
+// Message representing a Modbus function request
+message MbusClientFunctionReq {
+  MbusFuncCode code = 1;       // Modbus function code
+  uint32 address = 2;          // Register/coil start address
+  uint32 count = 3;            // Register/coils count
+  uint32 max_attempts = 4;     // Max attempts
+  bytes values = 5;            // Optional written values. 2 bytes per register, 1 byte for each 8 coils/discrete.
+}
+
+// Message representing a Modbus function response
+message MbusClientFunctionResp {
+  MbusFuncCode code = 1;       // Modbus function code
+  uint32 address = 2;          // Register/coil start address
+  uint32 count = 3;            // Register/coils count
+  bytes values = 4;            // Read values. 2 bytes per register, 1 byte for each 8 coils/discrete.
+  MbusError error = 5;         // Error code
+}
+
+// Message representing an Modbus client request.
+message MbusClientReq {
+  oneof type {
+    MbusClientFunctionReq function = 1; // Function request
+  }
+}
+
+// Message representing an Modbus client response.
+message MbusClientResp {
+  oneof type {
+    MbusClientFunctionResp function = 1;  // Function response
+  }
+}
+
+// Message representing Modbus client data.
+message MbusClientData {
+  oneof type {
+    MbusClientStop stop = 1;     // Message used to stop interface.
+    MbusClientCfg config = 2;    // Message used to get or set interface config.
+    MbusClientStatus status = 3; // Message used to get interface status.
+    MbusClientReq request = 4;   // Message used to set an request on the interface.
+    MbusClientResp response = 5; // Message used to get the response from the interface.
+  }
+}

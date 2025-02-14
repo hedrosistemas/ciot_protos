@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package Ciot;
+
+option csharp_namespace = "Ciot.Protos.V2";
+
+// Enum representing Modbus client error codes.
+enum MbusError {
+  MBUS_ERROR_NONE = 0;        // No error
+  MBUS_ERROR_REG_ADDR = 1;    // Invalid register address
+  MBUS_ERROR_ARG = 2;         // Invalid argument
+  MBUS_ERROR_PORT_LAYER = 3;  // Port layer error
+  MBUS_ERROR_NO_RESOURCE = 4; // No resource error
+  MBUS_ERROR_IO = 5;          // I/O error
+  MBUS_ERROR_STATE = 6;       // Protocol stack invalid state error
+  MBUS_ERROR_TIMEOUT = 7;     // Timeout error
+}
+
+// Enum representing Modbus function codes
+enum MbusFuncCode {
+  MBUS_FUNC_CODE_NONE = 0;                  // No function
+  MBUS_FUNC_CODE_READ_COILS = 1;            // Read Coils (0x01)
+  MBUS_FUNC_CODE_READ_DI = 2;               // Read Discrete Inputs (0x02)
+  MBUS_FUNC_CODE_READ_HR = 3;               // Read Holding Registers (0x03)
+  MBUS_FUNC_CODE_READ_IR = 4;               // Read Input Registers (0x04)
+  MBUS_FUNC_CODE_WRITE_SINGLE_COIL = 5;     // Write Single Coil (0x05)
+  MBUS_FUNC_CODE_WRITE_SINGLE_HR = 6;       // Write Single Holding Register (0x06)
+  MBUS_FUNC_CODE_WRITE_MULTIPLE_COILS = 15; // Write Coils (0x0F)
+  MBUS_FUNC_CODE_WRITE_MULTIPLE_HR = 16;    // Write Holding Registers (0x10)
+}

@@ -29,7 +29,7 @@ enum UartError {
   UART_ERROR_PARITY = 5;         // UART parity error.
   UART_ERROR_DATA_BREAK = 6;     // UART data break error.
   UART_ERROR_OPEN = 8;           // UART open error.
-  UART_ERROR_UNKNOWN = -1;       // Unknown UART event error.
+  UART_ERROR_UNKNOWN = 9;        // Unknown UART event error.
 }
 
 // Message used to stop uart interface

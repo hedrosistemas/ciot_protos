@@ -72,20 +72,27 @@ message WifiReqGetAp {
 // Message representing a Wi-Fi request.
 message WifiReq {
   oneof type {
-    WifiReqScan scan = 1;               // Start wifi scanner
-    WifiReqScanResult scan_result = 2;  // Wifi scanner result
-    WifiReqGetAp get_ap = 3;           // Get acess point information from wifi scanner queue
-    WifiApInfo get_ap_result = 4;       // Get acess point result
+    WifiReqScan scan = 1;     // Start wifi scanner
+    WifiReqGetAp get_ap = 2;  // Get acess point information from wifi scanner queue
+  }
+}
+
+// Message representing a Wi-Fi response.
+message WifiResp {
+  oneof type {
+    WifiReqScanResult scan = 1;  // Wifi scanner result
+    WifiApInfo get_ap = 2;       // Get acess point result
   }
 }
 
 // Message representing data for the Wi-Fi interface.
 message WifiData {
   oneof type {
-    WifiStop stop = 1;                // Stop Wi-Fi interface.
-    WifiCfg config = 2;               // Configuration for the Wi-Fi interface.
-    WifiStatus status = 3;            // Status of the Wi-Fi interface.
-    WifiReq request = 4;              // Wi-Fi request data.
-    WifiInfo info = 5;                // TCP information.
+    WifiStop stop = 1;         // Stop Wi-Fi interface.
+    WifiCfg config = 2;        // Configuration for the Wi-Fi interface.
+    WifiStatus status = 3;     // Status of the Wi-Fi interface.
+    WifiReq request = 4;       // Wi-Fi request data.
+    WifiResp response = 5;     // Wi-Fi response data.
+    WifiInfo info = 6;         // TCP information.
   }
 }

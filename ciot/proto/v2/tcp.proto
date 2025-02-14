@@ -73,6 +73,6 @@ message TcpData {
     TcpCfg config = 2;    // Configuration for the TCP module.
     TcpStatus status = 3; // Status of the TCP module.
     TcpReq request = 4;   // TCP request data.
-    TcpInfo info = 5;     // TCP information.
+    TcpInfo info = 6;     // TCP information.
   }
 }

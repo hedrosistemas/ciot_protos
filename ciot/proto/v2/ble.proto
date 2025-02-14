@@ -53,6 +53,6 @@ message BleData {
     BleCfg config = 2;
     BleStatus status = 3;
     BleReq request = 4;
-    BleInfo info = 5;
+    BleInfo info = 6;
   }
 }

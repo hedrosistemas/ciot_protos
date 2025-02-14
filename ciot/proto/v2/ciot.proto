@@ -44,6 +44,6 @@ message Data {
   oneof type {
     Status status = 2; // Status of the CIOT device.
     Req request = 3;   // CIOT request data.
-    Info info = 4;     // Additional information about the CIOT device.
+    Info info = 6;     // Additional information about the CIOT device.
   }
 }
