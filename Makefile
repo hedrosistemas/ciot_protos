@@ -14,6 +14,9 @@ gen:
 	protoc --$(L)_out=$(O) ciot/proto/v2/logger.proto
 	protoc --$(L)_out=$(O) ciot/proto/v2/logger.proto
 	protoc --$(L)_out=$(O) ciot/proto/v2/mqtt_client.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/mbus.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/mbus_client.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/mbus_server.proto
 	protoc --$(L)_out=$(O) ciot/proto/v2/msg.proto
 	protoc --$(L)_out=$(O) ciot/proto/v2/ntp.proto
 	protoc --$(L)_out=$(O) ciot/proto/v2/ota.proto
