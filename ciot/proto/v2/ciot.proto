@@ -28,8 +28,14 @@ message Info {
 
 // Message representing CIOT status.
 message Status {
-  State state = 1; // State of the CIOT device.
-  repeated bool ifaces = 2; // State of each CIOT iface. (false: stopped, true: started)
+  State state = 1;                 // State of the CIOT device.
+  repeated IfaceStatus ifaces = 2; // Status of each CIOT iface. 
+}
+
+// Message representing an CIOT iface status.
+message IfaceStatus {
+  IfaceType type = 1; // Iface type
+  bool started = 2;   // Iface status (false: stopped, true: started)
 }
 
 // Message representing a CIOT request.
