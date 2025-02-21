@@ -9,10 +9,10 @@ option csharp_namespace = "Ciot.Protos.V2";
 // Enum representing the state of CIOT.
 enum State {
   STATE_IDLE = 0;     // CIOT core is in an idle state.
-  STATE_STARTING = 1; // CIOT core is starting.
-  STATE_STARTED = 2;  // CIOT core is started.
+  STATE_STARTED = 1;  // CIOT core is started.
+  STATE_STARTING = 2; // CIOT core is starting.
   STATE_BUSY = 3;     // CIOT core is busy.
-  STATE_ERROR = -1;   // CIOT core encountered an error.
+  STATE_ERROR = 4;    // CIOT core encountered an error.
 }
 
 // Enum representing different serialization types for CIOT.
@@ -29,6 +29,7 @@ message Info {
 // Message representing CIOT status.
 message Status {
   State state = 1; // State of the CIOT device.
+  repeated bool ifaces = 2; // State of each CIOT iface. (false: stopped, true: started)
 }
 
 // Message representing a CIOT request.
