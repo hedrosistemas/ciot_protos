@@ -3,7 +3,6 @@ syntax = "proto3";
 package Ciot;
 
 import "ciot/proto/v2/mbus.proto";
-import "ciot/proto/v2/uart.proto";
 
 option csharp_namespace = "Ciot.Protos.V2";
 
@@ -22,7 +21,6 @@ message MbusServerStop {
 // Message representing Modbus RTU configuration
 message MbusServerRtuCfg {
   uint32 server_id = 1;     // Server ID
-  UartCfg serial_cfg = 2;   // Serial port config
 }
 
 // Message representing Modbus TCP configuration
