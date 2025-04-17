@@ -51,4 +51,15 @@ enum Err {
   ERR_DECODER_MISSING = 42;    // Decoder is missing
   ERR_SERIALIZER_MISSING = 43; // Serializer is missing
   ERR_SMALL_RAW = 44;          // Data size is greater than raw bytes array
+
+  ERR_INVALID_REQUEST = 45;   // Invalid request received
+  ERR_INVALID_TCP_MBAP = 47;  // Invalid TCP MBAP
+  ERR_CRC = 48;               // Invalid CRC
+  ERR_TRANSPORT = 49;         // Transport error
+  ERR_INVALID_RESPONSE = 50;  // Invalid response received
+
+  ERR_MBUS_EXCEPTION_ILLEGAL_FUNCTION = 101;       // Modbus exception 1
+  ERR_MBUS_EXCEPTION_ILLEGAL_DATA_ADDR = 102;      // Modbus exception 2
+  ERR_MBUS_EXCEPTION_ILLEGAL_DATA_VAL = 103;       // Modbus exception 3
+  ERR_MBUS_EXCEPTION_SERVER_DEVICE_FAILURE = 104;  // Modbus exception 4
 }
