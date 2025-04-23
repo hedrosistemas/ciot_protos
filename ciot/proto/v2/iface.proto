@@ -42,6 +42,29 @@ enum IfaceReqState {
   IFACE_REQ_STATE_RECEIVED = 3; // Request received
 }
 
+// Enum representing different data types for the interface request.
+enum DataType {
+  DATA_TYPE_UNKNOWN = 0; // Unknown data type.
+  DATA_TYPE_STOP = 1;    // Stop data type.
+  DATA_TYPE_CONFIG = 2;  // Configuration data type.
+  DATA_TYPE_STATUS = 3;  // Status data type.
+  DATA_TYPE_REQUEST = 4; // Request data type.
+  DATA_TYPE_INFO = 5;    // Information data type.
+}
+
+// Message representing a request to get data.
+message GetData {
+  DataType type = 1; // Data type of the request.
+}
+
+// Message representing common data.
+message Common {
+  oneof type 
+  { 
+    bool stop = 1;    // Stop request.
+  }
+}
+
 // Message representing information about an interface.
 message IfaceInfo {
   uint32 id = 1;      // Interface ID.

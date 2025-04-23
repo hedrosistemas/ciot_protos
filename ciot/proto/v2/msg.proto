@@ -27,25 +27,6 @@ import "ciot/proto/v2/mbus_server.proto";
 
 option csharp_namespace = "Ciot.Protos.V2";
 
-enum DataType {
-  DATA_TYPE_UNKNOWN = 0;
-  DATA_TYPE_STOP = 1;
-  DATA_TYPE_CONFIG = 2;
-  DATA_TYPE_STATUS = 3;
-  DATA_TYPE_REQUEST = 4;
-  DATA_TYPE_INFO = 5;
-}
-
-message GetData {
-  DataType type = 1;
-}
-
-message Common {
-  oneof type {
-    bool stop = 1;
-  }
-}
-
 // Represents an CioT message
 message Msg {
   uint32 id = 1;                   // Message ID.
