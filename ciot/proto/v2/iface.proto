@@ -33,6 +33,7 @@ enum IfaceType {
   IFACE_TYPE_LOG = 24;         // LOG interface type.
   IFACE_TYPE_MBUS_CLIENT = 25; // Modbus client interface type.
   IFACE_TYPE_MBUS_SERVER = 26; // Modbus server interface type.
+  IFACE_TYPE_PWM = 27;         // PWM interface type.
 }
 
 // Enum representing different states of the interface request.
