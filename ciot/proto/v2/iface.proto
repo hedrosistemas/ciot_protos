@@ -73,8 +73,8 @@ message IfaceInfo {
 
 // Message representing interface request status.enum
 message IfaceReqStatus {
-  uint32 id = 1;            // Request message ID
-  IfaceReqState state = 2;  // Request state
-  uint32 data_type = 3;     // Request message data type
-  IfaceInfo iface = 4;      // Interface information
+  uint32 id = 1;           // Request message ID
+  IfaceReqState state = 2; // Request state
+  uint32 data_type = 3;    // Request message data type
+  IfaceInfo iface = 4;     // Interface information
 }
