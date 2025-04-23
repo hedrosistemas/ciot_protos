@@ -18,6 +18,7 @@ gen:
 	protoc --$(L)_out=$(O) ciot/proto/v2/mbus_client.proto
 	protoc --$(L)_out=$(O) ciot/proto/v2/mbus_server.proto
 	protoc --$(L)_out=$(O) ciot/proto/v2/msg.proto
+	protoc --$(L)_out=$(O) ciot/proto/v2/msg_data.proto
 	protoc --$(L)_out=$(O) ciot/proto/v2/ntp.proto
 	protoc --$(L)_out=$(O) ciot/proto/v2/ota.proto
 	protoc --$(L)_out=$(O) ciot/proto/v2/storage.proto
