@@ -21,15 +21,15 @@ enum UartReqType {
 
 // Enum representing different UART error types.
 enum UartError {
-  UART_ERROR_NONE = 0;           // No UART error.
-  UART_ERROR_BREAK = 1;          // UART break error.
-  UART_ERROR_BUFFER_FULL = 2;    // UART buffer full error.
-  UART_ERROR_FIFO_OVERFLOW = 3;  // UART FIFO overflow error.
-  UART_ERROR_FRAME = 4;          // UART frame error.
-  UART_ERROR_PARITY = 5;         // UART parity error.
-  UART_ERROR_DATA_BREAK = 6;     // UART data break error.
-  UART_ERROR_OPEN = 8;           // UART open error.
-  UART_ERROR_UNKNOWN = 9;        // Unknown UART event error.
+  UART_ERROR_NONE = 0;          // No UART error.
+  UART_ERROR_BREAK = 1;         // UART break error.
+  UART_ERROR_BUFFER_FULL = 2;   // UART buffer full error.
+  UART_ERROR_FIFO_OVERFLOW = 3; // UART FIFO overflow error.
+  UART_ERROR_FRAME = 4;         // UART frame error.
+  UART_ERROR_PARITY = 5;        // UART parity error.
+  UART_ERROR_DATA_BREAK = 6;    // UART data break error.
+  UART_ERROR_OPEN = 8;          // UART open error.
+  UART_ERROR_UNKNOWN = 9;       // Unknown UART event error.
 }
 
 // Message used to stop uart interface
@@ -37,16 +37,16 @@ message UartStop {}
 
 // Message representing configuration for the UART module.
 message UartCfg {
-  uint32 baud_rate = 1;   // Baud rate for UART.
-  uint32 num = 2;         // UART number.
-  uint32 rx_pin = 3;      // RX pin number.
-  uint32 tx_pin = 4;      // TX pin number.
-  uint32 rts_pin = 5;     // RTS pin number.
-  uint32 cts_pin = 6;     // CTS pin number.
-  uint32 parity = 7;      // Parity for UART.
+  uint32 baud_rate = 1;  // Baud rate for UART.
+  uint32 num = 2;        // UART number.
+  uint32 rx_pin = 3;     // RX pin number.
+  uint32 tx_pin = 4;     // TX pin number.
+  uint32 rts_pin = 5;    // RTS pin number.
+  uint32 cts_pin = 6;    // CTS pin number.
+  uint32 parity = 7;     // Parity for UART.
   bool flow_control = 8; // Flow control for UART.
   bool dtr = 9;          // DTR (Data Terminal Ready) signal.
-  bool bridge_mode = 10; // Bridge mode for UART.
+  uint32 mode = 12;      // UART mode (used to enable rs485 mode on some mcus).
 }
 
 // Message representing status for the UART module.
