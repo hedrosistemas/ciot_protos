@@ -31,28 +31,29 @@ message SysCfg {}
 
 // Message representing system features.
 message SysFeatures {
-  bool ble_adv = 1;     // Bluetooth Low Energy advertising.
-  bool ble_scn = 2;     // Bluetooth Low Energy scanning.
-  bool ble = 3;         // Bluetooth Low Energy support.
-  bool eth = 4;         // Ethernet support.
-  bool gpio = 5;        // General Purpose Input/Output support.
-  bool http_client = 6; // HTTP client support.
-  bool http_server = 7; // HTTP server support.
-  bool mbus_client = 8; // Modbus client support.
-  bool mbus_server = 9; // Modbus server support.
-  bool ntp = 10;        // Network Time Protocol support.
-  bool ota = 11;        // Over-the-Air update support.
-  bool pwm = 12;        // Pulse Width Modulation support.
-  bool sys = 13;        // System support.
-  bool tcp = 14;        // Transmission Control Protocol support.
-  bool timer = 15;      // Timer support.
-  bool uart = 16;       // Universal Asynchronous Receiver-Transmitter support.
-  bool usb = 17;        // Universal Serial Bus support.
-  bool wifi = 18;       // Wireless Fidelity support.
-  bool storage = 19;    // Storage support.
-  bool serializer = 20; // Serializer support.
-  bool crypt = 21;      // Cryptography support.
-  bool dfu = 22;        // Device Firmware Update support.
+  bool ble_adv = 1;      // Bluetooth Low Energy advertising.
+  bool ble_scn = 2;      // Bluetooth Low Energy scanning.
+  bool ble = 3;          // Bluetooth Low Energy support.
+  bool eth = 4;          // Ethernet support.
+  bool gpio = 5;         // General Purpose Input/Output support.
+  bool http_client = 6;  // HTTP client support.
+  bool http_server = 7;  // HTTP server support.
+  bool mbus_client = 8;  // Modbus client support.
+  bool mbus_server = 9;  // Modbus server support.
+  bool mqtt_client = 10; // Mqtt client support.
+  bool ntp = 11;         // Network Time Protocol support.
+  bool ota = 12;         // Over-the-Air update support.
+  bool pwm = 13;         // Pulse Width Modulation support.
+  bool sys = 14;         // System support.
+  bool tcp = 15;         // Transmission Control Protocol support.
+  bool timer = 16;       // Timer support.
+  bool uart = 17;        // Universal Asynchronous Receiver-Transmitter support.
+  bool usb = 18;         // Universal Serial Bus support.
+  bool wifi = 19;        // Wireless Fidelity support.
+  bool storage = 20;     // Storage support.
+  bool serializer = 21;  // Serializer support.
+  bool crypt = 22;       // Cryptography support.
+  bool dfu = 23;         // Device Firmware Update support.
 }
 
 // Message representing system information.
