@@ -46,7 +46,7 @@ message UartCfg {
   uint32 parity = 7;     // Parity for UART.
   bool flow_control = 8; // Flow control for UART.
   bool dtr = 9;          // DTR (Data Terminal Ready) signal.
-  uint32 mode = 12;      // UART mode (used to enable rs485 mode on some mcus).
+  uint32 mode = 10;      // UART mode (used to enable rs485 mode on some mcus).
 }
 
 // Message representing status for the UART module.
