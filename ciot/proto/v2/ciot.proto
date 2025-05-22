@@ -22,27 +22,27 @@ enum SerializationType {
 
 // Message representing CIOT information.
 message Info {
-  bytes version = 1;              // CIOT library version
-  repeated IfaceType ifaces = 2;  // CIOT ifaces types list
+  bytes version = 1;             // CIOT library version
+  repeated IfaceType ifaces = 2; // CIOT ifaces types list
 }
 
 // Message representing CIOT status.
 message Status {
   State state = 1;                 // State of the CIOT device.
-  repeated IfaceStatus ifaces = 2; // Status of each CIOT iface. 
+  repeated IfaceStatus ifaces = 2; // Status of each CIOT iface.
 }
 
 // Message representing an CIOT iface status.
 message IfaceStatus {
-  IfaceType type = 1; // Iface type
-  bool started = 2;   // Iface status (false: stopped, true: started)
+  IfaceType type = 1;   // Iface type
+  IfaceState state = 2; // Iface state
 }
 
 // Message representing a CIOT request.
 message Req {
   oneof type {
-    IfaceInfo save_cfg = 1;     // Save interface configuration
-    IfaceInfo delete_cfg = 2;   // Delete interface configuration
+    IfaceInfo save_cfg = 1;   // Save interface configuration
+    IfaceInfo delete_cfg = 2; // Delete interface configuration
   }
 }
 
