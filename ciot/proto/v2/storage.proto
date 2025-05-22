@@ -55,7 +55,7 @@ message StorageReq {
   oneof type {
     StorageFile save = 1;
     StorageFile load = 2;
-    StorageFile delete = 3;
+    StorageFile remove = 3;
     StorageReqFormat format = 4;
   }
 }
