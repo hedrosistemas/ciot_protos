@@ -43,7 +43,11 @@ message MbusServerStatus {
 }
 
 // Message representing an Modbus server request.
-message MbusServerReq {}
+message MbusServerReq {
+  oneof type {
+    MbusFunctionReq function = 1; // Function request
+  }
+}
 
 // Message representing Modbus server data.
 message MbusServerData {
