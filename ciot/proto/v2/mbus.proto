@@ -28,3 +28,13 @@ enum MbusFuncCode {
   MBUS_FUNC_CODE_WRITE_MULTIPLE_COILS = 15; // Write Coils (0x0F)
   MBUS_FUNC_CODE_WRITE_MULTIPLE_HR = 16;    // Write Holding Registers (0x10)
 }
+
+// Message representing a Modbus function request
+message MbusFunctionReq {
+  MbusFuncCode code = 1;       // Modbus function code
+  uint32 address = 2;          // Register/coil start address
+  repeated uint32 data = 3;    // Optional written values. 
+  uint32 read_count = 4;       // Optional values count to read
+  uint32 max_attempts = 5;     // Max attempts
+  uint32 error = 6;            // Error code
+}
