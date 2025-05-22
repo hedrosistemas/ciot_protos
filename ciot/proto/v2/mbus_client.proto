@@ -37,7 +37,7 @@ message MbusClientCfg {
   }
   uint32 timeout = 3;                  // Timeout in milliseconds
   uint32 pool_interval = 4;            // Modbus client pooling interval in milliseconds
-  MbusClientFunctionReq function = 5;  // Optional function to run on pooling
+  MbusFunctionReq function = 5;        // Optional function to run on pooling
 }
 
 // Message representing Modbus client status.
@@ -46,35 +46,10 @@ message MbusClientStatus {
   MbusError error = 2;       // Modbus client error code.
 }
 
-// Message representing a Modbus function request
-message MbusClientFunctionReq {
-  MbusFuncCode code = 1;       // Modbus function code
-  uint32 address = 2;          // Register/coil start address
-  uint32 count = 3;            // Register/coils count
-  uint32 max_attempts = 4;     // Max attempts
-  bytes values = 5;            // Optional written values. 2 bytes per register, 1 byte for each 8 coils/discrete.
-}
-
-// Message representing a Modbus function response
-message MbusClientFunctionResp {
-  MbusFuncCode code = 1;       // Modbus function code
-  uint32 address = 2;          // Register/coil start address
-  uint32 count = 3;            // Register/coils count
-  bytes values = 4;            // Read values. 2 bytes per register, 1 byte for each 8 coils/discrete.
-  MbusError error = 5;         // Error code
-}
-
 // Message representing an Modbus client request.
 message MbusClientReq {
   oneof type {
-    MbusClientFunctionReq function = 1; // Function request
-  }
-}
-
-// Message representing an Modbus client response.
-message MbusClientResp {
-  oneof type {
-    MbusClientFunctionResp function = 1;  // Function response
+    MbusFunctionReq function = 1; // Function request
   }
 }
 
@@ -85,6 +60,5 @@ message MbusClientData {
     MbusClientCfg config = 2;    // Message used to get or set interface config.
     MbusClientStatus status = 3; // Message used to get interface status.
     MbusClientReq request = 4;   // Message used to set an request on the interface.
-    MbusClientResp response = 5; // Message used to get the response from the interface.
   }
 }
