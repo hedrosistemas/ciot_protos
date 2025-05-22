@@ -4,6 +4,12 @@ package Ciot;
 
 option csharp_namespace = "Ciot.Protos.V2";
 
+enum IfaceState {
+  IFACE_STATE_STOPPED = 0;
+  IFACE_STATE_STARTED = 1;
+  IFACE_STATE_ERROR = 2;
+}
+
 // Enum representing different interface types.
 enum IfaceType {
   IFACE_TYPE_UNDEFINED = 0;    // Undefined interface type.
