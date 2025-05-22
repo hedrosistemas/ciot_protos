@@ -24,7 +24,7 @@ enum EventType {
 message Event {
   EventType type = 1; // Event type
   oneof data {
-    Msg msg = 2;      // Event message
-    bytes raw = 3;    // Event raw data
+    Msg msg = 2;   // Event message
+    bytes raw = 3; // Event raw data
   }
 }
