@@ -60,9 +60,8 @@ message GpioStateInfo {
 // Message representing an gpio request
 message GpioReq {
   oneof type {
-    GpioCfg config = 2;      // Configuration request
-    GpioStatus status = 3;   // Status request.
-    GpioStateInfo state = 4; // Set/read sate request
+    GpioStatus set_status = 1;   // Set Status request.
+    GpioStateInfo set_state = 2; // Set sate request
   }
 }
 
