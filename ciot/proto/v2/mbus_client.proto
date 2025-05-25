@@ -36,8 +36,6 @@ message MbusClientCfg {
     MbusClientTcpCfg tcp = 2;          // Modbus TCP configuration
   }
   uint32 timeout = 3;                  // Timeout in milliseconds
-  uint32 pool_interval = 4;            // Modbus client pooling interval in milliseconds
-  MbusFunctionReq function = 5;        // Optional function to run on pooling
 }
 
 // Message representing Modbus client status.
