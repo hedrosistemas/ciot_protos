@@ -63,3 +63,7 @@ enum Err {
   ERR_MBUS_EXCEPTION_ILLEGAL_DATA_VAL = 103;      // Modbus exception 3
   ERR_MBUS_EXCEPTION_SERVER_DEVICE_FAILURE = 104; // Modbus exception 4
 }
+
+message ErrData {
+  Err err = 1;
+}

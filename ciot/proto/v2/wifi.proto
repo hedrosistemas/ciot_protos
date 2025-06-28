@@ -17,19 +17,14 @@ enum WifiScanState {
   WIFI_SCAN_STATE_IDLE = 0;     // Wi-Fi scan is idle.
   WIFI_SCAN_STATE_SCANNING = 1; // Wi-Fi scan is in progress.
   WIFI_SCAN_STATE_SCANNED = 2;  // Wi-Fi scan completed successfully.
-  WIFI_SCAN_STATE_ERROR = 3;   // Error occurred during Wi-Fi scan.
-}
-
-// Enum representing the state of the Wi-Fi interface.
-enum WifiState {
-  WIFI_STATE_IDLE = 0; // Wi-Fi interface is idle.
+  WIFI_SCAN_STATE_ERROR = 3;    // Error occurred during Wi-Fi scan.
 }
 
 // Message representing information about a Wi-Fi access point.
 message WifiApInfo {
-  bytes bssid = 1;    // BSSID (MAC address) of the access point.
-  string ssid = 2;    // SSID (network name) of the access point.
-  int32 rssi = 3;     // Received Signal Strength Indicator (RSSI) of the access point.
+  bytes bssid = 1; // BSSID (MAC address) of the access point.
+  string ssid = 2; // SSID (network name) of the access point.
+  int32 rssi = 3; // Received Signal Strength Indicator (RSSI) of the access point.
   int32 authmode = 4; // Authentication mode of the access point.
 }
 
@@ -48,7 +43,8 @@ message WifiCfg {
 // Message representing status for the Wi-Fi interface.
 message WifiStatus {
   uint32 disconnect_reason = 1; // Reason for Wi-Fi disconnection.
-  Ciot.TcpStatus tcp = 2;      // Status of the TCP connection over Wi-Fi.
+  Ciot.TcpStatus tcp = 2;       // Status of the TCP connection over Wi-Fi.
+  WifiScanState scan_state = 3; // Wi-Fi scan state
 }
 
 message WifiInfo {
@@ -61,38 +57,39 @@ message WifiReqScan {}
 
 // Wifi scan result
 message WifiReqScanResult {
-  uint32 count = 1;          // Access point count found by scan request
+  uint32 count = 1; // Access point count found by scan request
 }
 
 // Wifi request to get the scanned access point information
 message WifiReqGetAp {
-  uint32 id = 1;             // Access point ID
+  uint32 id = 1; // Access point ID
 }
 
 // Message representing a Wi-Fi request.
 message WifiReq {
   oneof type {
-    WifiReqScan scan = 1;     // Start wifi scanner
-    WifiReqGetAp get_ap = 2;  // Get acess point information from wifi scanner queue
+    WifiReqScan scan = 1; // Start wifi scanner
+    WifiReqGetAp get_ap =
+        2; // Get acess point information from wifi scanner queue
   }
 }
 
 // Message representing a Wi-Fi response.
 message WifiResp {
   oneof type {
-    WifiReqScanResult scan = 1;  // Wifi scanner result
-    WifiApInfo get_ap = 2;       // Get acess point result
+    WifiReqScanResult scan = 1; // Wifi scanner result
+    WifiApInfo get_ap = 2;      // Get acess point result
   }
 }
 
 // Message representing data for the Wi-Fi interface.
 message WifiData {
   oneof type {
-    WifiStop stop = 1;         // Stop Wi-Fi interface.
-    WifiCfg config = 2;        // Configuration for the Wi-Fi interface.
-    WifiStatus status = 3;     // Status of the Wi-Fi interface.
-    WifiReq request = 4;       // Wi-Fi request data.
-    WifiResp response = 5;     // Wi-Fi response data.
-    WifiInfo info = 6;         // TCP information.
+    WifiStop stop = 1;     // Stop Wi-Fi interface.
+    WifiCfg config = 2;    // Configuration for the Wi-Fi interface.
+    WifiStatus status = 3; // Status of the Wi-Fi interface.
+    WifiReq request = 4;   // Wi-Fi request data.
+    WifiResp response = 5; // Wi-Fi response data.
+    WifiInfo info = 6;     // TCP information.
   }
 }
