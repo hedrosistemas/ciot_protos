@@ -28,27 +28,28 @@ option csharp_namespace = "Ciot.Protos.V2";
 
 message MsgData {
   oneof type {
-    Common common = 1;               // Common data.
-    GetData get_data = 2;            // Get data request.
-    Ciot.Data ciot = 3;              // CioT data.
-    SysData sys = 4;                 // System data.
-    HttpClientData http_client = 5;  // HTTP Client data.
-    HttpServerData http_server = 6;  // HTTP Server data.
-    MqttClientData mqtt_client = 7;  // MQTT Client data.
-    UartData uart = 8;               // UART data.
-    NtpData ntp = 9;                 // NTP data.
-    BleAdvData ble_adv = 10;         // BLE adv data.
-    BleScnData ble_scn = 11;         // BLE scanner data.
-    BleData ble = 12;                // BLE data.
-    DfuData dfu = 13;                // DFU data.
-    GpioData gpio = 14;              // GPIO data.
-    OtaData ota = 15;                // OTA data.
-    StorageData storage = 16;        // Storage data.
-    TcpData eth = 17;                // Ethernet data.
-    WifiData wifi = 18;              // WiFi data.
-    LogData log = 19;                // Log data.
-    UsbData usb = 20;                // USB data.
-    MbusClientData mbus_client = 21; // Modbus client data.
-    MbusServerData mbus_server = 22; // Modbus server data.
+    // CustomType custom = 1;        // Custom data.
+    Common common = 2;               // Common data.
+    GetData get_data = 3;            // Get data request.
+    Ciot.Data ciot = 4;              // CioT data.
+    SysData sys = 5;                 // System data.
+    HttpClientData http_client = 6;  // HTTP Client data.
+    HttpServerData http_server = 7;  // HTTP Server data.
+    MqttClientData mqtt_client = 8;  // MQTT Client data.
+    UartData uart = 9;               // UART data.
+    NtpData ntp = 10;                // NTP data.
+    BleAdvData ble_adv = 11;         // BLE adv data.
+    BleScnData ble_scn = 12;         // BLE scanner data.
+    BleData ble = 13;                // BLE data.
+    DfuData dfu = 14;                // DFU data.
+    GpioData gpio = 15;              // GPIO data.
+    OtaData ota = 16;                // OTA data.
+    StorageData storage = 17;        // Storage data.
+    TcpData eth = 18;                // Ethernet data.
+    WifiData wifi = 19;              // WiFi data.
+    LogData log = 20;                // Log data.
+    UsbData usb = 21;                // USB data.
+    MbusClientData mbus_client = 22; // Modbus client data.
+    MbusServerData mbus_server = 23; // Modbus server data.
   }
 }
